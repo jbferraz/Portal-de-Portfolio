@@ -18,8 +18,13 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /usuario_home</h2>
+            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /usuario_home</h2> -->
+            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
+            >/usuario_home</h2>
+            <img src="<?php echo base_url('img/logo1.png')?>"
+                alt="Logo" style="
+                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -46,10 +51,13 @@
                     >VOLTAR
                 </a><br><br>
                 <div class="inner_cell" style="
-                    display: table; width: 100%; padding: 20px; 
+                    display: block; width: 100%; padding: 20px; 
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
-                    <img src="<?php echo base_url('img/user_img.jpg') ?>" 
-                        alt="Foto do post" style="width: 100%;"> 
+                    <div style="
+                        display: block; width: 100%; max-height: 11vw; overflow: hidden;">
+                        <img src="<?php echo base_url('img/user_img.jpg') ?>" 
+                            alt="Foto do post" style="width: 100%; position: relative; top: -0.7vw;">
+                    </div>
                 </div>
                 <br>
                 <div style="display: block; margin: 0 0 0 10px; width: 110%;">
@@ -65,7 +73,7 @@
                     </h6>
                     <div style="display: table; width: 90%; margin: auto; text-align: justify;">
                         <p style="padding: 0; margin: 15px 0 15px 0;">
-                            <?php for ($i = 0; $i < 15; $i++) echo $topusuario->desc.' ' ?>
+                            <?php /*for ($i = 0; $i < 15; $i++)*/ echo $topusuario->desc.' ' ?>
                         </p>
                     </div>
                     <hr>
@@ -109,8 +117,8 @@
             display: block; width: 70%; padding: 20px; margin: 50px auto 0;
             border-width: 2px; border-style: solid; background: #f4f4f4;">
             <a href="<?php echo base_url('post/'.$postone->idpost) ?>">
-                <div style="width: 100%; max-height: 350px; overflow: hidden;">
-                    <img style="width: 100%; position: relative; top: -4vw;"
+                <div style="width: 100%; max-height: 25vw; overflow: hidden;">
+                    <img style="width: 115%; position: relative; top: -4vw; left: -4vw;"
                         src="<?php echo base_url($postone->foto) ?>" 
                         alt="Foto do post">
                 </div>
@@ -129,7 +137,7 @@
         <p style="
             display: table; width: 80%; padding: 30px; text-align: justify; 
             font-size: 18px; margin: auto;">
-            <?php for ($i = 0; $i < 100; $i++) echo $postone->fulldesc.' ' ?>
+            <?php /*for ($i = 0; $i < 100; $i++)*/ echo $postone->fulldesc.' ' ?>
         </p>
         <?php if (isset($post)): ?>
         <?php foreach ($post as $g): ?>

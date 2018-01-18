@@ -24,8 +24,8 @@ class Home extends CI_Controller {
 			$data['post'] = $post;
 			unset($post);
 			foreach ($data['post'] as $object) {
-				$object->desc100 = $object->{'SUBSTRING(post.desc, 1, 100)'}.'...';
-				unset($object->{'SUBSTRING(post.desc, 1, 100)'});
+				$object->desc100 = substr($object->{'SUBSTRING(post.desc, 1, 100)'}, 0, 50).'...'; 
+				unset($object->{'SUBSTRING(post.desc, 1, 100)'}); // Corta descrição em 50 chars
 			}
 			unset($object);
 			$data['post'] = array_slice($data['post'], 0, 6); // Número de post no index
@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 		if ($avaliacao = $this->av_m->getValidAvaliacao()) {
 			$data['avaliacao'] = $avaliacao;
 			unset($avaliacao);
-			if ($topusuario = ratingMaker($data['avaliacao'], 5))
+			if ($topusuario = ratingMaker($data['avaliacao'], 5)) // Quantidade de top usuários
 				$data['topusuario'] = $topusuario;
 			unset($topusuario);
 		}
@@ -48,24 +48,28 @@ class Home extends CI_Controller {
 		if (!isset($data['topusuario']))
             $data['topusuario'][] = d_topusuario();
 
-		$this->load->view('backend_test/home/home', $data);
+		$this->load->helper('layout'); // Carrega a view
+        viewLoader('home/home', $data);
 	}
 
 	function login() 
 	{
 		$data['usuario'] = $this->gn_m->getGeneric('nome_completo', 'asc', 'usuario');
 
-		$this->load->view('backend_test/home/login', $data);
+		$this->load->helper('layout'); // Carrega a view
+        viewLoader('home/login', $data);
 	}
 
 	function submit()
 	{
+		$this->load->model('Usuario_model', 'ur_m');
+
 		$email = $this->input->post('email');
 		$senha = hash('sha512', $this->input->post('senha'));
 
-		if ($user = $this->gn_m->getGenericWhere('email', "'".$email."'", 'usuario', null, null)[0]) {
+		if ($user = $this->ur_m->userlogin($email)[0]) { // Procura usuário válido
 			if ($user->senha == $senha) {
-				$this->session->set_flashdata('success_msg', 'Usuário e senha existem');
+				//$this->session->set_flashdata('success_msg', 'Usuário e senha existem');
 				
 				//$this->session->set_userdata('id', $user->idusuario);
 				$arraydata = array(
@@ -90,7 +94,10 @@ class Home extends CI_Controller {
 	{
 		$this->session->unset_userdata('id');
 		$this->session->unset_userdata('type');
-		$this->session->unset_userdata('name');
+		if ($this->session->userdata('name'))
+			$this->session->unset_userdata('name');
+		if ($this->session->userdata('hash'))
+			$this->session->unset_userdata('hash');
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}

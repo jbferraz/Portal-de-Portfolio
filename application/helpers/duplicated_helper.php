@@ -14,6 +14,8 @@ function getPostCadastro($status, $perf) {
         'facebook' => $ci->input->post('facebook'),
         'instagram' => $ci->input->post('instagram'),
         'senha' => $ci->input->post('senha'),
+        'senhan' => $ci->input->post('senhan'),
+        'senhan2' => $ci->input->post('senhan2'),
         'desc' => $ci->input->post('desc'),
         'status' => $status,
         'formacao_curso_id' => $ci->input->post('formacao'),
@@ -42,7 +44,7 @@ function duplicatedUsuario($fromDb, $fromPost, $id) {
 }
 
 function getHash($phone, $status, $id) {
-    $ci =& get_instance();
+    //$ci =& get_instance();
     date_default_timezone_set('America/Sao_Paulo');
     $fields = array
     (
@@ -55,7 +57,7 @@ function getHash($phone, $status, $id) {
 }
 
 function getAvaliacao($id, $phone, $rate, $status, $user) {
-    $ci =& get_instance();
+    //$ci =& get_instance();
     date_default_timezone_set('America/Sao_Paulo');
     $fields = array
     (
@@ -65,6 +67,35 @@ function getAvaliacao($id, $phone, $rate, $status, $user) {
         'data_avaliacoes' => date('Y-m-d H:i:s'),
         'status' => $status,
         'usuario_id' => $user
+    );
+    return $fields;
+}
+
+function getUploadConfig($phone) {
+    //$ci =& get_instance();
+    $config = array
+    (
+        'upload_path' => './img',
+        'allowed_types' => 'gif|jpg|png',
+        'max_size' => 200,
+        'file_name' => sha1($phone.microtime(true).mt_rand(0, 10000)),
+        'overwrite' => TRUE
+    );
+    return $config;
+} 
+
+function getPostPost($file, $id, $status) {
+    $ci =& get_instance();
+    date_default_timezone_set('America/Sao_Paulo');
+    $fields = array
+    (
+        'foto' => 'img/'.$file, // Extensão adicionada depois
+        'data_cadastro' => date('Y-m-d H:i:s'),
+        'data_alteracao' => date('Y-m-d H:i:s'),
+        'titulo' => $ci->input->post('titulo'),
+        'desc' => $ci->input->post('desc'),
+        'status' => $status,
+        'usuario_id' => $id
     );
     return $fields;
 }

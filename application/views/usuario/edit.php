@@ -44,13 +44,8 @@
         background: #f4f4f4;">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /edit</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/edit</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /edit</h2>
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -91,24 +86,20 @@
                 display: table; width: 37%; height: 200px;
                 margin: 50px 0 0 30vw;">
                 <div style="float: left; width: 100%;">          
-                    <label>NOME COMPLETO</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                    <label>Nome Completo</label><br>
+                    <input class="form-control"  
                         type="text" name="nome_completo" 
-                        value="<?php echo $usuario->nome_completo ?>" required><br><br>
-                    <label>E-MAIL</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                        value="<?php echo $usuario->nome_completo ?>" required><br>
+                    <label>E-mail</label><br>
+                    <input class="form-control"  
                         type="email" name="email" 
-                        value="<?php echo $usuario->email ?>" required><br><br> 
-                    <label>CELULAR (DDD)</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                        value="<?php echo $usuario->email ?>" required><br> 
+                    <label>Celular (DDD)</label><br>
+                    <input class="form-control"  
                         type="number" name="celular" min="11900000000" max="99999999999" 
-                        value="<?php echo $usuario->celular ?>" required><br><br>
-                    <label>SEXO</label><br>
-                    <select style="
-                        width: 96.5%; height: 42px;" name="sexo" required>
+                        value="<?php echo $usuario->celular ?>" required><br>
+                    <label>Sexo</label><br>
+                    <select <input class="form-control" name="sexo" required>
                         <option value=""></option>
                         <option value="MASCULINO" 
                         <?php if($usuario->sexo == 'MASCULINO') echo 'selected'?>>MASCULINO</option>
@@ -116,84 +107,72 @@
                         <?php if($usuario->sexo == 'FEMININO') echo 'selected'?>>FEMININO</option>
                         <option value="OUTRO"
                         <?php if($usuario->sexo == 'OUTRO') echo 'selected'?>>OUTRO</option>
-                    </select><br><br>
-                    <label>DATA DE NASCIMENTO</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                    </select><br>
+                    <label>Data de nascimento</label><br>
+                    <input class="form-control"  
                         type="date" name="data_nasc" 
-                        value="<?php echo $usuario->data_nasc ?>" required><br><br>
-                    <label>LINKEDIN</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                        value="<?php echo $usuario->data_nasc ?>" required><br>
+                    <label>Linkedin</label><br>
+                    <input class="form-control"  
                         type="text" name="linkedin"
-                        value="<?php echo $usuario->linkedin ?>"><br><br>
-                    <label>FACEBOOK</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                        value="<?php echo $usuario->linkedin ?>"><br>
+                    <label>Facebook</label><br>
+                    <input class="form-control"  
                         type="text" name="facebook"
-                        value="<?php echo $usuario->facebook ?>"><br><br>
-                    <label>INSTAGRAM</label><br>
-                    <input style="
-                        width: 95%; height: 35px;"  
+                        value="<?php echo $usuario->facebook ?>"><br>
+                    <label>Instagram</label><br>
+                    <input class="form-control"  
                         type="text" name="instagram"
-                        value="<?php echo $usuario->instagram ?>"><br><br>
-                    <label>DESCRIÇÃO</label><br>
-                    <textarea style="
-                        width: 95%; height: 80px;"  
+                        value="<?php echo $usuario->instagram ?>"><br>
+                    <label>Descrição</label><br>
+                    <textarea <input class="form-control"  
                         type="password" name="desc" required
-                        ><?php echo $usuario->desc?></textarea><br><br>
-                    <label>FORMAÇÃO</label><br>
-                    <select style="
-                        width: 96.5%; height: 42px;" name="formacao" required>
+                        ><?php echo $usuario->desc?></textarea><br>
+                    <label>Formação</label><br>
+                    <select <input class="form-control" name="formacao" required>
                         <option value=""></option>
                         <?php foreach ($formacao as $g): ?>
                         <option value="<?php echo $g->idformacao ?>"><?php echo $g->formacao ?></option>
                         <?php endforeach ?>
-                    </select><br><br>
+                    </select><br>
                     <script>$('select[name="formacao"]').val(<?php echo $usuario->formacao_curso_id?>).trigger("change");</script>
-                    <label>ESTADO</label><br>
-                    <select style="
-                        width: 96.5%; height: 42px;" name="estado" required>
+                    <label>Estado</label><br>
+                    <select <input class="form-control" name="estado" required>
                         <option value=""></option>
                         <?php foreach ($estado as $g): ?>
                         <option value="<?php echo $g->idestado ?>"><?php echo $g->nome_estado ?></option>
                         <?php endforeach ?>
-                    </select><br><br>
+                    </select><br>
                     <script>
                         $('select[name="estado"]').val(<?php echo $usuario->idestado?>).trigger("change");
                         $(document).ready(function() {
                             $('select[name="estado"]').trigger('click');
                         });
                     </script>
-                    <label>CIDADE</label><br>
-                    <select style="
-                        width: 96.5%; height: 42px;" name="cidade" disabled required>
+                    <label>Cidade</label><br>
+                    <select <input class="form-control" name="cidade" disabled required>
                         <option value=""></option>
-                    </select><br><br>
+                    </select><br>
                     <div style="margin: 0 30px 0 0">
                         <div style="
-                        background: #f4f4f4; width: 100%; padding: 15px 0 0 15px; margin: 20px 20px 20px 0;">
-                            <label>SENHA ANTERIOR</label><br>
-                            <input style="
-                                width: 95%; height: 35px;"  
-                                type="password" name="senha"><br><br> 
-                            <label>NOVA SENHA</label><br>
-                            <input style="
-                                width: 95%; height: 35px;"  
+                             background:#cccccc; width: 100%; padding: 15px 20px 0 15px; margin: 20px 20px 20px 20px;">
+                            <label>Senha Anterior</label><br>
+                            <input class="form-control"  
+                                type="password" name="senha"><br> 
+                            <label>Nova Senha</label><br>
+                            <input class="form-control"  
                                 type="password" name="senhan" pattern=".{8,50}" 
-                                title="No mínimo 8 caracteres"><br><br>
-                            <label>REPETIR NOVA SENHA</label><br>
-                            <input style="
-                                width: 95%; height: 35px;"  
-                                type="password" name="senhan2"><br><br> 
+                                title="No mínimo 8 caracteres"><br>
+                            <label>Repetir nova senha</label><br>
+                            <input class="form-control"  
+                                type="password" name="senhan2"><br>
                             <i style="display: table; padding: 0 0 14px;">Se algum campo estiver vazio a senha será ignorada</i>
                         </div>
+                        <button class="btn btn-success btn-block" type="submit" style="margin: 20px 20px 20px 20px;">Enviar </button>
                     </div>
                     
                     
-                    <input type="submit"  value="EDITAR" style="
-                        display: table; margin: 55px auto 0;
-                        width: 50%; height: 55px; font-size: 15px;"/>
+                    '
                 </div>     
             </div>
         </form>
@@ -204,13 +183,22 @@
         <a href="<?php echo base_url('usuario/delete') ?>"
             style="text-decoration: none;"
             onclick="return confirm('Tem certeza que deseja excluir esta conta?')">                
-            <div style="
-                display: table;
-                padding: 18px; border-width: 2px; border-style: solid; 
-                background: #f4f4f4;">
-                DELETAR<br>USUÁRIO
+            <button class="btn btn-info  "<br>DELETAR<br>USUÁRIO</button>
+            
+        
+            <br>
+            <br>
+            
+             <a href="<?php echo base_url('usuario') ?>">              
+            <button class="btn btn-info  ">Voltar</button>
+            </a>
+               
+            
+               </a> 
+        
             </div>
-        </a>
+   
+        
     </div>
     
             

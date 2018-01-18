@@ -18,8 +18,13 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /home</h2>
+            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /home</h2> -->
+            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
+            >/home</h2>
+            <img src="<?php echo base_url('img/logo1.png')?>"
+                alt="Logo" style="
+                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
         </a>
         <div style="float: right; padding: 15px;">
             <?php if ($this->session->userdata('type') === '0'): ?>
@@ -53,19 +58,33 @@
             <a href="<?php echo base_url('post/'.$g->idpost) ?>"
                 style="color: #000; text-decoration: none;">
                 <div class="posts_cell" style="
-                    display: table; width: 25%; min-width: 170px; height: 220px; float: left; 
+                    display: block; width: 25%; min-width: 170px; height: 17.35vw; min-height: 240px; float: left; 
                     padding: 20px; margin: 0 0 20px 20px; background: #f4f4f4; 
                     border-width: 2px; border-style: solid;">
-                    <!-- <img src="<?php echo $g->foto ?>" alt="Foto do post" style="width: 100%;"> -->
-                    <img src="<?php echo base_url($g->foto) ?>" 
-                        alt="Foto do post" style="width: 100%;"> 
+                    <div style="
+                        display: block; width: 100%; max-height: 10.7vw; overflow: hidden; 
+                        min-height: 10.7vw;">
+                        <img src="<?php echo base_url($g->foto) ?>"
+                            alt="Foto do post" style="
+                                width: 140%; position: relative; top: -0.7vw; left: -2.5vw;"> 
+                    </div>
                     <h4 style="padding: 0; margin: 10px 0 0;">
-                        <?php echo $g->titulo.' ['.$g->data_alteracao ?>]
+                        <div style="display block; max-width: 60%; 
+                            max-height: 1em; float: left; overflow:hidden; word-break: break-all;">
+                            <?php echo $g->titulo ?>
+                        </div>
+                        <div style="float: right;">
+                            <?php echo '['.date('Y-m-d', strtotime($g->data_alteracao)).']' ?>
+                        </div>
                     </h4>
-                    <h5 style="padding: 0; margin: 0;">
+                    <h5 style="display: block; width: 100%; padding: 0; margin: 3px 0 0;
+                        max-height: 1em; overflow:hidden; word-break: break-all;">
                         <?php echo $g->nome_completo ?>
                     </h5>
-                    <p><?php echo $g->desc100 ?></p>
+                    <p style="display: block; padding: 0; margin: 12px 0 0;
+                        max-height: 2.5em; overflow:hidden; word-break: break-all;">
+                        <?php echo $g->desc100 ?>
+                    </p>
                 </div>
             </a>
             <?php endforeach ?>

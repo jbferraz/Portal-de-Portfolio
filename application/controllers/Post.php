@@ -8,22 +8,34 @@ class Post extends CI_Controller {
         $this->load->model('Generic_model', 'gn_m');
     }
 
-    public function post($id) 
+    function post($id) 
     {
         $this->load->model('Usuario_model', 'ur_m');
+        $this->load->model('Post_model', 'pt_m');
         $this->load->helper('db_defaults');
         
         if (is_int($id = (int) $id) && is_numeric($id))
-        if ($post = $this->gn_m->getGenericById('idpost', $id, 'post')) {
+        //if ($post = $this->gn_m->getGenericById('idpost', $id, 'post')) {
+        if ($post = $this->pt_m->getPostByPostId($id)) { // Não é genérico porque precisa validar o usuário
             $data['post'] = $post;
             unset($post);
 
-            if ($usuario = $this->ur_m->getAllUsuarioById($data['post']->usuario_id)[0]) {
+            if ($data['post']->status === '0' && // Testa se usuário tem permissão
+                $this->session->userdata('id') !== $data['post']->usuario_id)
+                unset($data['post']);
+            else if ($usuario = $this->ur_m->getAllUsuarioById($data['post']->usuario_id)[0]) {
                 $data['usuario'] = $usuario;
                 $data['usuario']->nome_completo = 
                     mb_strtoupper($data['usuario']->nome_completo);
             }
             unset($usuario);
+
+            /* if ($data['post']->status === '0' &&
+                $this->session->userdata('id') !== $data['usuario']->idusuario) {
+                //redirect(base_url());
+                unset($data['post']);
+                unset($data['usuario']);
+            } */
         }
 
         if (!isset($data['post'])) 
@@ -31,6 +43,7 @@ class Post extends CI_Controller {
         if (!isset($data['usuario'])) 
             $data['usuario'] = d_topusuario();
 
-        $this->load->view('backend_test/post/post', $data);
+        $this->load->helper('layout'); // Carrega a view
+        viewLoader('post/post', $data);
     }
 }

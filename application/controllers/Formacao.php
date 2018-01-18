@@ -34,8 +34,8 @@ class Formacao extends CI_Controller {
             $data['avaliacao'][] = d_avaliacao();
         if (!isset($data['topformacao']))
             $data['topformacao'][] = d_topusuario();
-        //$data['topformacao'] = array_merge($data['topformacao'], $data['topformacao']);
 
-        $this->load->view('backend_test/formacao/formacao', $data);
+        $this->load->helper('layout'); // Carrega a view
+        viewLoader('formacao/formacao', $data);
     }
 }

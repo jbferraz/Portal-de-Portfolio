@@ -18,13 +18,8 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /login</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/login</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /login</h2>
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -62,21 +57,17 @@
         method="post">
         <div class="login" style="
             display: table; width: 30%; height: 200px;
-            margin: 150px auto 0;">
+            margin: 100px auto 0;">
                 <div style="float: left; width: 70%;">               
-                    <label>EMAIL</label><br>
-                    <input style="
-                        width: 95%; height: 30px;"  
-                        type="email" name="email" required><br><br>
-                    <label>SENHA</label><br>
-                    <input style="
-                        width: 95%; height: 30px;"  
-                        type="password" name="senha" required><br><br> 
-                </div>
-                <div style="float: right; width: 30%;">
-                    <input type="submit"  value="LOGIN" style="
-                        display: table; margin: 18px auto 0; 
-                        width: 90%; height: 40px; font-size: 15px;"/>
+                    <label>E-mail</label><br>
+                    <input class="form-control"  
+                        type="email" name="email" required="" placeholder="E-mail"><br>
+                    <label>Senha</label><br>
+                    <input class="form-control"  
+                        type="password" name="senha" required="" placeholder="*******" ><br>
+                </div><br>
+                
+                <button class="btn btn-success btn-block" type="submit" style="margin-right:50px; width: 70%;">Salvar </button>
                 </div>
         </div>
     </form>

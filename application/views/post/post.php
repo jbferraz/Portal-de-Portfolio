@@ -18,13 +18,8 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /post</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/post</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /post</h2>
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -47,14 +42,14 @@
         <div class="img_cell" style="
             display: block; width: 70%; padding: 20px; margin: 40px auto 0;
             border-width: 2px; border-style: solid; background: #f4f4f4;">
-            <div style="width: 100%; max-height: 25vw; overflow: hidden;">
-                <img style="width: 115%; position: relative; top: -4vw; left: -4vw;"
+            <div style="width: 100%; max-height: 350px; overflow: hidden;">
+                <img style="width: 100%; position: relative; top: -4vw;"
                     src="<?php echo base_url($post->foto) ?>" 
                     alt="Foto do post">
             </div>           
         </div>
         <h1 style="display: table; padding: 40px 0 0; font-size: 45px; margin: auto;">
-        <?php if ($post->status === '0') echo '[Pendente] '; echo strtoupper($post->titulo) ?>
+            <?php echo strtoupper($post->titulo)?>
         </h1>
         <h2 style="display: table; padding: 0; margin: auto;">
             [<?php echo $post->data_alteracao ?>]
@@ -62,7 +57,7 @@
         <p style="
             display: table; width: 80%; padding: 30px; text-align: justify; 
             font-size: 18px; margin: auto;">
-            <?php /*for ($i = 0; $i < 100; $i++)*/ echo $post->desc.' ' ?>
+            <?php for ($i = 0; $i < 100; $i++) echo $post->desc.' ' ?>
         </p>
     </div>
 
@@ -71,23 +66,21 @@
         margin: 60px 0 0 0;">
         <?php if ($this->session->userdata('type') === '0' && 
             $post->usuario_id == $this->session->userdata('id')): ?>
-            <a style="display: table; padding: 18px; text-decoration: none;"
-                href="<?php echo base_url('usuario') ?>">
-                VOLTAR
+            <a style="display: table;  text-decoration: none;"
+                href="<?php echo base_url('home') ?>">
+                <button class="btn btn-info  ">Voltar</button>
             </a>
+        <br>
             <a href="<?php echo base_url('usuario/edit_post/'.$post->idpost) ?>"
                 style="text-decoration: none;">                
-                <div style="
-                    display: table; margin: 15px 0 0; text-align: center;
-                    padding: 18px; border-width: 2px; border-style: solid; 
-                    background: #f4f4f4;">
-                    EDITAR<br>POST
+                <button class="btn btn-info  ">Editar<br>Post</button>
+                </a>
                 </div>
-            </a>
+           
         <?php else: ?>
             <a style="display: table; padding: 18px; text-decoration: none;"
-                href="<?php echo base_url('usuario_home/'.$post->usuario_id) ?>">
-                VOLTAR
+                href="<?php echo base_url('home') ?>"><button class="btn btn-info  ">Voltar</button>
+               
             </a>
         <?php endif ?>
     </div>

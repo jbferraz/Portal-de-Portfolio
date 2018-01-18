@@ -11,7 +11,7 @@ function ratingMaker($avaliacao, $limit)
     foreach ($av_split as $key => $value) {
         $size = count($value);
         $av_split[$key] = array_sum($value)/$size;
-        //$av_split[$key] = bcdiv(array_sum($value), $size, 3);
+        //$av_split[$key] = bcdiv(array_sum($value), $size, 3); // Formata rate em 3.000
     }
 
     arsort($av_split);

@@ -41,6 +41,7 @@ class Usuario_model extends CI_Model {
 
         $this->db->from('usuario, estado, cidade, formacao');
         $this->db->where('usuario.idusuario = '.$id);
+        $this->db->where('usuario.status = 1');
         $this->db->where('usuario.cidade_id = cidade.idcidade');
         $this->db->where('cidade.estado_id = estado.idestado');
         $this->db->where('usuario.formacao_curso_id = formacao.idformacao');
@@ -53,7 +54,52 @@ class Usuario_model extends CI_Model {
             return false;
     }
 
-    function getLogin($usuario, $senha) {
-         
+    function getUsuarioPass($id)
+    {
+        $this->db->select(
+            'usuario.senha');
+
+        $this->db->from('usuario');
+        $this->db->where('usuario.status = 1');
+        $this->db->where('usuario.idusuario = '.$id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+            return $query->result();
+        else
+            return false;
+    }
+
+    function userlogin($email)
+    {
+        $this->db->where('usuario.status = 1');
+        $this->db->where('usuario.email = '."'".$email."'");
+        $query = $this->db->get('usuario');
+
+        if ($query->num_rows() > 0)
+            return $query->result();
+        else
+            return false;
+    }
+
+    function editUsuarioDelete($id)
+    {
+        //$this->db->where('usuario_id', $id);
+        //$this->db->update('avaliacoes', array('status' => 0));
+
+        //$this->db->where('usuario_id', $id);
+        //$this->db->update('chave_hash', array('status' => 0));
+
+        //$this->db->where('usuario_id', $id);
+        //$this->db->update('post', array('status' => 0, 'status_adm' => 0));
+
+        $this->db->where('idusuario', $id);
+        $this->db->update('usuario', array('status' => 0));
+
+        if ($this->db->affected_rows() > 0)
+            return true;
+        else
+            return false;
     }
 }

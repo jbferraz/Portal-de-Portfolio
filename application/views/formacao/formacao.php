@@ -18,13 +18,8 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /formacao</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/formacao</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /formacao</h2>
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -36,22 +31,24 @@
         <?php endif ?>
         </div>
     </div>
-
+   
     <div class="menu" style="
-        display: table; width: 20%; float: left; 
+        display: table; width: 20%; float: left; padding-top: 20px; 
         ">
         <div style="padding: 20px;">
             <?php foreach ($formacao as $g): ?>
+            
             <p>
-                <a href="<?php echo base_url('formacao/'.$g->idformacao) ?>"
+                <a  class="btn btn-info"style="margin-right:50px; width: 80%;color: #034f84;" href="<?php echo base_url('formacao/'.$g->idformacao) ?>"
                 ><?php echo $g->formacao ?></a>
             </p>
-            <?php endforeach ?>
+            <?php endforeach ?>          
+            
         </div>
     </div>
 
     <div class="users" style="
-        display: table; width: 80%; float: left;
+        display: table; width: 76%; float: right; 
         ">
         <div style="padding: 20px; display: table; width: 95%;">
             <?php foreach ($topformacao as $g): ?>
@@ -62,19 +59,15 @@
                     margin: 0 44px 40px 20px; text-align: center; 
                     ">
                     <div class="inner_cell" style="
-                        display: block; width: 100%; padding: 20px; 
+                        display: table; width: 100%; padding: 20px; 
                         border-width: 2px; border-style: solid; background: #f4f4f4;">
-                        <div style="
-                            display: block; width: 100%; max-height: 13vw; overflow: hidden;">
-                            <img src="<?php echo base_url('img/user_img.jpg') ?>" 
-                                alt="Foto do usuário" style="
-                                    width: 100%; position: relative; top: -0.7vw;">
-                        </div>
+                        <img src="<?php echo base_url('img/user_img.jpg') ?>" 
+                            alt="Foto do usuário" style="width: 100%;"> 
                     </div>
                     <h3 style="padding: 0; margin: 0 0 0 44px;">
                         <?php echo $g->nome_completo.' ['.$g->rate.']' ?>
                     </h3>
-                    <h6 style="padding: 0; margin: 0 0 0 44px;">
+                    <h6 style="padding-top:  10px; margin: 0 0 0 44px;">
                         <?php echo $g->nome_cidade.' – '.$g->sigla_estado ?>
                     </h6>
                 </div>
@@ -83,21 +76,6 @@
         </div>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Formacao</h4>
-        <pre>
-            <?php print_r($formacao) ?>
-        </pre>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <h4>Top Formacao</h4>
-        <pre>
-            <?php print_r($topformacao) ?>
-        </pre>
-    </div>
 
 </body>
 </html>

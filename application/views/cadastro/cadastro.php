@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 	<meta charset="utf-8">
@@ -43,13 +44,8 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /cadastro</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/cadastro</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /cadastro</h2>
         </a>
         <div style="float: right; padding: 15px;">
         <?php if ($this->session->userdata('type') === '0'): ?>
@@ -86,83 +82,73 @@
     <form action="<?php echo base_url('cadastro/submit') ?>"
         method="post">
         <div class="cadastro" style="
-            display: table; width: 30%; height: 200px;
-            margin: 50px auto 0;">
-            <div style="float: left; width: 100%;">          
-                <label>NOME COMPLETO</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="text" name="nome_completo" required><br><br>
-                <label>E-MAIL</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="email" name="email" required><br><br> 
-                <label>CELULAR (DDD)</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="number" name="celular" min="11900000000" max="99999999999" required><br><br>
-                <label>SEXO</label><br>
-                <select style="
-                    width: 96.5%; height: 42px;" name="sexo" required>
+            display: table; width: 25%; height: 200px;
+            margin: 100px auto 0;">
+            <div class="row" style="padding-top:0px;">    
+                <fieldset>
+                    <legend><strong>Cadastro de Pessoas</strong></legend>
+                </fieldset>
+                <br>
+                <br>
+                <label>Nome Completo</label><br>
+                <input class="form-control" 
+                    type="text" name="nome_completo" required="" placeholder="Nome Completo"><br>
+                <label>E-mail</label><br>
+                <input <input class="form-control"  
+                    type="email" name="email" required="" placeholder="E-mail"><br>
+                <label>Celular (DDD)</label><br>
+                <input <input class="form-control"  
+                    type="number" name="celular" min="11900000000" max="99999999999" required="" placeholder="celular"><br>
+                <label>Sexo</label><br>
+                <select <input class="form-control" name="sexo" required="" placeholder="Opções">
                     <option value=""></option>
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMININO">FEMININO</option>
                     <option value="OUTRO">OUTRO</option>
-                </select><br><br>
-                <label>DATA DE NASCIMENTO</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="date" name="data_nasc" required><br><br>
-                <label>LINKEDIN</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="text" name="linkedin"><br><br>
-                <label>FACEBOOK</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="text" name="facebook"><br><br>
-                <label>INSTAGRAM</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="text" name="instagram"><br><br>
-                <label>SENHA</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
+                </select><br>
+                <label>Data de Nascimento</label><br>
+                <input <input class="form-control"  
+                              type="date" name="data_nasc" required=""> <br>
+                <label>Linkedin</label><br>
+                <input <input class="form-control" 
+                    type="text" name="linkedin" placeholder="Linkedin"><br>
+                <label>Facebook</label><br>
+                <input <input class="form-control" 
+                    type="text" name="facebook" placeholder="Facebook"><br>
+                <label>Instagram</label><br>
+                <input <input class="form-control" 
+                    type="text" name="instagram" placeholder="Instagram"><br>
+                <label>Senha</label><br>
+                <input <input class="form-control"  
                     type="password" name="senha" pattern=".{8,50}" 
-                    required title="No mínimo 8 caracteres"><br><br>
-                <label>REPETIR SENHA</label><br>
-                <input style="
-                    width: 95%; height: 35px;"  
-                    type="password" name="senha2" required><br><br> 
-                <label>DESCRIÇÃO</label><br>
-                <textarea style="
-                    width: 95%; height: 80px;"  
-                    type="password" name="desc" required></textarea><br><br>
-                <label>FORMAÇÃO</label><br>
-                <select style="
-                    width: 96.5%; height: 42px;" name="formacao" required>
-                    <option value=""></option>
+                    required title="No mínimo 8 caracteres" placeholder="********"><br>
+                <label>Repetir Senha</label><br>
+                <input <input class="form-control"  
+                    type="password" name="senha2" required="" placeholder="********"><br> 
+                <label>Descrição</label><br>
+                <textarea <input class="form-control"  
+                    type="password" name="desc" required="" placeholder="Descrição"></textarea><br>
+                <label>Formação</label><br>
+                <select <input class="form-control" name="formacao" required="" >
+                    <option value="" ></option>
                     <?php foreach ($formacao as $g): ?>
                     <option value="<?php echo $g->idformacao ?>"><?php echo $g->formacao ?></option>
                     <?php endforeach ?>
-                </select><br><br>
-                <label>ESTADO</label><br>
-                <select style="
-                    width: 96.5%; height: 42px;" name="estado" required>
+                </select><br>
+                <label>Estado</label><br>
+                <select <input class="form-control" name="estado" required>
                     <option value=""></option>
                     <?php foreach ($estado as $g): ?>
                     <option value="<?php echo $g->idestado ?>"><?php echo $g->nome_estado ?></option>
                     <?php endforeach ?>
-                </select><br><br>
-                <label>CIDADE</label><br>
-                <select style="
-                    width: 96.5%; height: 42px;" name="cidade" required disabled>
+                </select><br>
+                <label>Cidade</label><br>
+                <select <input class="form-control" name="cidade" required disabled>
                     <option value=""></option>
                 </select> 
+                <br>
+                <button class="btn btn-success btn-block" type="submit" style="margin-top:10px;">Salvar </button>
                 
-                <input type="submit"  value="ENVIAR" style="
-                    display: table; margin: 55px auto 0;
-                    width: 50%; height: 55px; font-size: 15px;"/>
             </div>     
         </div>
     </form>

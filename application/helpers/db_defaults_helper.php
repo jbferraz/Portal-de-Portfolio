@@ -46,7 +46,8 @@ function d_topusuario()
     );
 }
 
-function d_post() {
+function d_post() 
+{
     return  (object) array
     (
         'idpost' => 0,

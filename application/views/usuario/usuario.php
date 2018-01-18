@@ -18,13 +18,8 @@
         background: #f4f4f4">
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /usuario</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/usuario</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
+            <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
+            >Portal de Portfólio /usuario</h2>
         </a>
         <div style="float: right; padding: 15px;">
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
@@ -42,27 +37,25 @@
                 ">
                 <br><br>
                 <div class="inner_cell" style="
-                    display: block; width: 100%; padding: 20px; 
+                    display: table; width: 100%; padding: 20px; 
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
-                    <div style="
-                        display: block; width: 100%; max-height: 11vw; overflow: hidden;">
-                        <img src="<?php echo base_url('img/user_img.jpg') ?>" 
-                            alt="Foto do post" style="width: 100%; position: relative; top: -0.7vw;">
-                    </div>
+                    <img src="<?php echo base_url('img/user_img.jpg') ?>" 
+                        alt="Foto do post" style="width: 100%;"> 
                 </div>
                 <br>
                 <div style="display: block; margin: 0 0 0 10px; width: 110%;">
                     <h2 style="padding: 0; margin: 0;">
                         <?php echo $topusuario->nome_completo.' ['.$topusuario->rate.']' ?>
                     </h2>
-                    <h5 style="padding: 0; margin: 0;">
+                    
+                    <h5 style="padding-top:  10px; margin: 0;">
                         <?php echo $topusuario->nome_cidade.' – '.$topusuario->sigla_estado ?>
                     </h5>
                     <hr>
                     <h6 style="padding: 0; margin: 10px 0 0 0;">
                         <?php echo $topusuario->formacao ?>
                     </h6>
-                    <div style="display: table; width: 90%; margin: auto; text-align: justify;">
+                    <div style="display: table; width: 90%; margin: auto; text-align: center;">
                         <p style="padding: 0; margin: 15px 0 15px 0;">
                             <?php echo $topusuario->desc.' ' ?>
                         </p>
@@ -98,11 +91,10 @@
                     </h4>
                     <a href="<?php echo base_url('usuario/edit') ?>"
                         style="text-decoration: none;">                
-                        <div style="
-                            display: table; margin: 40px auto 0; 
-                            padding: 18px; border-width: 2px; border-style: solid; 
-                            background: #f4f4f4;">
-                            EDITAR<br>USUÁRIO
+                         
+                        <br>
+                        <button class="btn btn-info  "<br>Editar<br>Usuario</button>
+                            
                         </div>
                     </a>
                 </div>
@@ -116,19 +108,20 @@
         <a href="<?php echo base_url('usuario/create_post') ?>"
             style="text-decoration: none;">                
             <div style="
-                display: block; margin: 30px 0 0;
-                padding: 18px; border-width: 2px; border-style: solid; 
-                background: #f4f4f4;">
-                CRIAR<br>POST
+                display: block; margin: 15px 0 0;
+                
+                "><br>
+                <button class="btn btn-info  ">Criar<br>Post</button>
             </div>
         </a>
         <a href="<?php echo base_url('usuario/chave') ?>"
             style="text-decoration: none;">                
             <div style="
                 display: block; margin: 15px 0 0;
-                padding: 28px 18px 28px; border-width: 2px; border-style: solid; 
-                background: #f4f4f4;">
-                CHAVES
+                
+                "><br>
+                        <button class="btn btn-info  ">Chaves</button>
+               
             </div>
         </a>
     </div>
@@ -136,34 +129,12 @@
     <div class="posts" style="
         display: table; width: 70%; height: 700px; margin: 0 0 40px 60px; float: left; 
         ">
-
-        <?php
-        if ($this->session->flashdata('success_msg')) {
-            ?>
-            <div class="alert_true" style="
-                width: 60%; padding: 25px; margin: 30px auto 0; 
-                color: #006600; text-align: center; background: #b3ffb3;">
-                <?php echo $this->session->flashdata('success_msg') ?>
-            </div>
-            <?php
-        }
-        if ($this->session->flashdata('error_msg')) {
-            ?>
-            <div class="alert_false" style="
-                width: 60%; padding: 25px; margin: 30px auto 0; 
-                color: #800000; text-align: center; background: #ff9999;">
-                <?php echo $this->session->flashdata('error_msg') ?>
-            </div>
-            <?php
-        }
-        ?>
-
         <div class="img_cell" style="
             display: block; width: 70%; padding: 20px; margin: 50px auto 0;
             border-width: 2px; border-style: solid; background: #f4f4f4;">
             <a href="<?php echo base_url('post/'.$postone->idpost) ?>">
-                <div style="width: 100%; max-height: 25vw; overflow: hidden;">
-                    <img style="width: 115%; position: relative; top: -4vw; left: -4vw;"
+                <div style="width: 100%; max-height: 350px; overflow: hidden;">
+                    <img style="width: 100%; position: relative; top: -4vw;"
                         src="<?php echo base_url($postone->foto) ?>" 
                         alt="Foto do post">
                 </div>

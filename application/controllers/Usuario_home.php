@@ -17,7 +17,7 @@ class Usuario_home extends CI_Controller {
         $this->load->helper('db_defaults');
         
         if (is_int($id = (int) $id) && is_numeric($id))
-        if ($avaliacao = $this->av_m->getAvaliacaoById($id)) {
+        if ($avaliacao = $this->av_m->getAvaliacaoById($id)) { // Não deveria ser nescessário
             $data['avaliacao'] = $avaliacao;
             unset($avaliacao);
             
@@ -64,6 +64,7 @@ class Usuario_home extends CI_Controller {
         if (!isset($data['postone']))
             $data['postone'] = d_post();
 
-        $this->load->view('backend_test/usuario_home/usuario_home', $data);
+        $this->load->helper('layout'); // Carrega a view
+        viewLoader('usuario_home/usuario_home', $data);
     }
 }
