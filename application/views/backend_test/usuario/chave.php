@@ -59,7 +59,7 @@
         ">
         <?php if (!empty($chave)): ?>
         <?php foreach ($chave as $g): ?>
-            <div class="img_cell" style="
+            <div class="chave" style="
                 display: table; width: 70%; padding: 20px; margin: 20px auto 0;
                 background: #f4f4f4;">
                 <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
@@ -71,7 +71,7 @@
             </div>
         <?php endforeach ?>
         <?php else: ?>
-            <div class="img_cell" style="
+            <div class="chave" style="
                 display: table; width: 70%; padding: 20px; margin: 20px auto 0;
                 background: #f4f4f4;">
                 <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
@@ -89,7 +89,7 @@
             VOLTAR
         </a>
         <?php if ($mix['chave_count'] < 4): ?>
-            <a href="<?php echo base_url('usuario/create_chave') ?>"
+            <a href="<?php echo base_url('usuario/submit_chave') ?>"
                 style="text-decoration: none;">                
                 <div style="
                     display: table; margin: 15px 0 0; text-align: center;

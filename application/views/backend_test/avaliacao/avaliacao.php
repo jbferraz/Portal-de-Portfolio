@@ -59,13 +59,30 @@
     ?>
     
     <div class="frame" style="
-        display: table; width: 100%; margin: 50px auto 10vw;
+        display: table; width: 100%; margin: 40px auto 10vw;
         ">
-        <form action="<?php echo base_url('cadastro/submit') ?>"
+        <!-- <h1 style="display: table; margin: 0 auto 20px;">
+            Avaliando:
+        </h1> -->
+        <h3 style="display: table; margin: 0 auto 0;">
+            <?php echo $usuario->nome_completo.'&emsp;'.$usuario->nome_cidade.' – ' ?>
+            <?php echo $usuario->sigla_estado.'&emsp;'.$usuario->formacao ?>
+        </h3>
+        <div class="chave" style="
+            display: table; width: 50%; padding: 20px; margin: 30px auto 0;
+            background: #f4f4f4;"> <!-- #f4f4f4 -->
+            <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
+                <?php echo $chave->chave?>
+            </b>
+            <p style="font-family: monospace; font-size: 17px; margin: 5px 0 0; float: right;">
+                <?php echo $chave->validade ?>
+            </p>
+        </div>
+        <form action="<?php echo base_url('avaliacao/submit') ?>"
             method="post">
             <div class="cadastro" style="
                 display: table; width: 30%; height: 200px;
-                margin: 50px auto 0;">
+                margin: 30px auto 0;">
                 <div style="float: left; width: 100%;">          
                     <label>ESCOLHA UMA NOTA ENTRE 1 E 5:</label><br>
                     <div class="rate-frame" 

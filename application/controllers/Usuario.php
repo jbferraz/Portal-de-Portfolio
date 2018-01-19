@@ -354,13 +354,14 @@ class Usuario extends CI_Controller {
             $data['avaliacao'] = $this->gn_m->getGenericWhere('usuario_id', $id, 'avaliacoes', 'data_avaliacoes', 'desc');
             
             date_default_timezone_set('America/Sao_Paulo');
-            $int_time = strtotime(date('Y-m-d').' 23:59:59');
+            $int_time = strtotime(date('Y-m-d H:i:s'));
             //$g->int_val2 = $g->validade.' 23:59:59'; // +Dois dias completos
             //$g->int_now2 = date('Y-m-d').' 23:59:59';
 
             if (!empty($data['chave'])) {
                 foreach ($data['chave'] as $key => $g) {
                     $g->int_val = strtotime($g->validade.' 23:59:59'); // +Dois dias completos
+                    //echo $g->int_val.' '.$int_time.'<br>';
                     if ($g->int_val <= $int_time) // Remove as chaves vencidas
                         unset($data['chave'][$key]);
                 }
@@ -373,7 +374,7 @@ class Usuario extends CI_Controller {
         }
     }
 
-    function create_chave() 
+    function submit_chave() 
     {
         if ($this->session->userdata('type') !== '0')
             redirect(base_url());
@@ -385,7 +386,7 @@ class Usuario extends CI_Controller {
             $chave = $this->cv_m->getValidChaveById($id);
             
             date_default_timezone_set('America/Sao_Paulo');
-            $int_time = strtotime(date('Y-m-d').' 23:59:59');
+            $int_time = strtotime(date('Y-m-d H:i:s'));
 
             if (!empty($chave)) {
                 foreach ($chave as $key => $g) {

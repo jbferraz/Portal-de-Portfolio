@@ -69,7 +69,7 @@
                                 width: 140%; position: relative; top: -0.7vw; left: -2.5vw;"> 
                     </div>
                     <h4 style="padding: 0; margin: 10px 0 0;">
-                        <div style="display block; max-width: 60%; 
+                        <div style="display: block; max-width: 60%; 
                             max-height: 1em; float: left; overflow:hidden; word-break: break-all;">
                             <?php echo $g->titulo ?>
                         </div>
