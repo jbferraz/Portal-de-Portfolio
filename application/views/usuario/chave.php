@@ -75,18 +75,16 @@
     <div class="menu" style="
         diaplay: table; width: 15%; height: 50px; float: left;
         margin: 60px 0 0 0;">
-        <a style="display: table; padding: 18px; text-decoration: none;"
+        <a style="text-decoration: none;"
             href="<?php echo base_url('usuario') ?>">
-            VOLTAR
+           <button class="btn btn-success btn-info" type="submit" >Voltar</button>
         </a>
+        <br>
+        <br>
         <?php if ($mix['chave_count'] < 5): ?>
-            <a href="<?php echo base_url('usuario/create_chave') ?>"
+            <a href="<?php echo base_url('usuario/submit_chave') ?>"
                 style="text-decoration: none;">                
-                <div style="
-                    display: table; margin: 15px 0 0; text-align: center;
-                    padding: 18px; border-width: 2px; border-style: solid; 
-                    background: #f4f4f4;">
-                    CRIAR<br>CHAVE
+                <button class="btn btn-success btn-info" type="submit" >Criar<br>Chave</button>
                 </div>
             </a>
         <?php endif ?>

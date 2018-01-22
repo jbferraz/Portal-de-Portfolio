@@ -63,7 +63,8 @@
                 display: table; width: 70%; padding: 20px; margin: 20px auto 0;
                 background: #f4f4f4;">
                 <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
-                    <?php echo $g->chave?>
+                    <a style="text-decoration: none; color: #000;"
+                        href="<?php echo base_url('avaliacao?h='.$g->chave)?>"><?php echo $g->chave?></a>
                 </b>
                 <p style="font-family: monospace; font-size: 17px; margin: 5px 0 0; float: right;">
                     <?php echo $g->validade ?>

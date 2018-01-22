@@ -24,6 +24,8 @@ class Home extends CI_Controller {
 			$data['post'] = $post;
 			unset($post);
 			foreach ($data['post'] as $object) {
+				$object->{'SUBSTRING(post.desc, 1, 100)'} = // Remove espaços
+					str_replace('<br />', "", $object->{'SUBSTRING(post.desc, 1, 100)'});
 				$object->desc100 = substr($object->{'SUBSTRING(post.desc, 1, 100)'}, 0, 50).'...'; 
 				unset($object->{'SUBSTRING(post.desc, 1, 100)'}); // Corta descrição em 50 chars
 			}
@@ -70,6 +72,7 @@ class Home extends CI_Controller {
 		if ($user = $this->ur_m->userlogin($email)[0]) { // Procura usuário válido
 			if ($user->senha == $senha) {
 				//$this->session->set_flashdata('success_msg', 'Usuário e senha existem');
+				// adm@erase.me eraseme
 				
 				//$this->session->set_userdata('id', $user->idusuario);
 				$arraydata = array(
@@ -81,6 +84,8 @@ class Home extends CI_Controller {
 				//echo var_dump($this->session->userdata());
 				if ($this->session->userdata('type') === '0')
 					redirect(base_url('usuario'));
+				if ($this->session->userdata('type') === '1')
+					redirect(base_url('adm/adm'));
 			} else 
 				$this->session->set_flashdata('error_msg', 'Senha errada');
 		} else {
@@ -98,6 +103,8 @@ class Home extends CI_Controller {
 			$this->session->unset_userdata('name');
 		if ($this->session->userdata('hash'))
 			$this->session->unset_userdata('hash');
+		if ($this->session->userdata('referred_from'))
+			$this->session->unset_userdata('referred_from');
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}

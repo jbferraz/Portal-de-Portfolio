@@ -12,6 +12,7 @@ class Formacao extends CI_Controller {
     {
         $this->load->model('Avaliacao_model', 'av_m');
         $this->load->model('Usuario_model', 'ur_m');
+        $this->load->model('Post_model', 'pt_m');
         $this->load->helper('rating');
         $this->load->helper('db_defaults');
 

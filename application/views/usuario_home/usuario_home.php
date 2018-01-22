@@ -42,7 +42,7 @@
                 ">
                <br><br>
                 <div class="inner_cell" style="
-                    display: table; width: 100%; padding: 20px; 
+                    display: table; width: 125%; padding: 20px; 
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
                     <img src="<?php echo base_url('img/user_img.jpg') ?>" 
                         alt="Foto do post" style="width: 100%;"> 

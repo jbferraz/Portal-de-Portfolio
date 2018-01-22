@@ -30,6 +30,9 @@
         <?php if ($this->session->userdata('type') === '0'): ?>
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
             <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
+        <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
+            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
         <?php else: ?>
             <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
             <a href="<?php echo base_url('home/login') ?>">login</a>
@@ -47,14 +50,14 @@
         <div class="img_cell" style="
             display: block; width: 70%; padding: 20px; margin: 40px auto 0;
             border-width: 2px; border-style: solid; background: #f4f4f4;">
-            <div style="width: 100%; max-height: 25vw; overflow: hidden;">
-                <img style="width: 115%; position: relative; top: -4vw; left: -4vw;"
+            <div style="width: 100%; max-height: 26vw; overflow: hidden;">
+                <img style="width: 115%; position: relative; top: -4vw; left: -3.8vw;"
                     src="<?php echo base_url($post->foto) ?>" 
                     alt="Foto do post">
             </div>           
         </div>
         <h1 style="display: table; padding: 40px 0 0; font-size: 45px; margin: auto;">
-        <?php if ($post->status === '0') echo '[Pendente] '; echo strtoupper($post->titulo) ?>
+        <?php if ($post->status === '0') echo '[Pendente] '; echo mb_strtoupper($post->titulo) ?>
         </h1>
         <h2 style="display: table; padding: 0; margin: auto;">
             [<?php echo $post->data_alteracao ?>]

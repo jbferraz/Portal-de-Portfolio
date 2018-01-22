@@ -150,4 +150,24 @@ class Post_model extends CI_Model {
         else
             return false;
     }
+
+    function getUserImage($id) // Oldest valid post, ($id) user
+    {
+        $this->db->order_by('data_cadastro', 'asc');
+        $this->db->select(
+            'post.foto');
+
+        $this->db->from('post, usuario');
+        $this->db->where('post.status = 1');
+        $this->db->where('usuario.status = 1');
+        $this->db->where('usuario.idusuario = post.usuario_id');
+        $this->db->where('post.usuario_id = '.$id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+            return $query->row()->foto;
+        else
+            return false;
+    }
 }

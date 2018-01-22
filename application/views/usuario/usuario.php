@@ -32,12 +32,12 @@
         ">
         <div style="padding: 20px; display: table; width: 95%;">
             <div class="outer_cell" style="
-                display: table; width: 95%; min-width: 130px; height: 220px; float: left; 
+                display: table; width: 95%; min-width: 150px; height: 220px; float: left; 
                 margin: 0 44px 40px 20px; text-align: center; 
                 ">
                 <br><br>
                 <div class="inner_cell" style="
-                    display: table; width: 100%; padding: 20px; 
+                    display: table; width:125%; padding: 20px; 
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
                     <img src="<?php echo base_url('img/user_img.jpg') ?>" 
                         alt="Foto do post" style="width: 100%;"> 
@@ -119,7 +119,7 @@
             <div style="
                 display: block; margin: 15px 0 0;
                 
-                "><br>
+                ">
                         <button class="btn btn-info  ">Chaves</button>
                
             </div>
@@ -161,9 +161,9 @@
                 style="text-decoration: none;">                
                 <div style="
                     display: table; float: right; margin: 0 12% 0 0; text-align: center;
-                    padding: 18px; border-width: 2px; border-style: solid; 
+                    padding: 18px;  
                     background: #f4f4f4;">
-                    EDITAR<br>POST
+                    <button class="btn btn-info  ">Editar<br>Post</button>
                 </div>
             </a>
         </div>
@@ -200,11 +200,11 @@
                 <a href="<?php echo base_url('usuario/edit_post/'.$g->idpost) ?>"
                     style="text-decoration: none;">                
                     <div style="
-                        display: table; float: right; margin: 0 12% 0 0; text-align: center;
-                        padding: 18px; border-width: 2px; border-style: solid; 
-                        background: #f4f4f4;">
-                        EDITAR<br>POST
-                    </div>
+                    display: table; float: right; margin: 0 12% 0 0; text-align: center;
+                    padding: 18px;  
+                    background: #f4f4f4;">
+                    <button class="btn btn-info  ">Editar<br>Post</button>
+                </div>
                 </a>
             </div>
         <?php endforeach ?>

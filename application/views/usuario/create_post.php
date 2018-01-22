@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 	<meta charset="utf-8">
-	<title>Edit_post</title>
+	<title>Create_post</title>
     <link rel="stylesheet" type="text/css" 
         href="<?php echo base_url() ?>"/>
     <style>
@@ -20,10 +20,10 @@
         <a href="<?php echo base_url() ?>" style="
             text-decoration: none; color: #000;">
             <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /edit_post</h2> -->
+            >Portal de Portfólio /create_post</h2> -->
             <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/edit_post</h2>
-           
+            >/create_post</h2>
+            
         </a>
         <div style="float: right; padding: 15px;">
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
@@ -51,65 +51,58 @@
         <?php
     }
     ?>
-    <?php echo form_open_multipart('usuario/update_post')?>
-    <!-- <form action="<?php echo base_url('usuario/submit_post') ?>" method="post"> -->
-    <form>      
+    <?php echo form_open_multipart('usuario/submit_post')?> <!-- opens form -->
+    <!-- <form action="<?php echo base_url('usuario/submit_post') ?>" method="post"> -->      
         <div class="posts" style="
             display: table; width: 70%; height: 700px; margin: 0 0 0 10vw; float: left;
             ">
             <div class="frame" style="
                 display: table; width: 77%; height: 200px;
                 margin: 50px auto 0; padding: 0 0 0 30px;">
-                <div style="float: left; width: 100%;">
-                    <input type="hidden" 
-                        value="<?php echo $post->idpost?>" name="id" />  
+                <div style="float: left; width: 100%;">  
                     <div style="background: #f4f4f4; 
-                    margin: 0 4.1% 0 0;">        
-                        <label>Foto<br>
-                        <input    style="
+                     margin: 0 4.1% 0 0;">        
+                        <label>Foto</label><br>
+                        <input style="
                             width: 100%; height: 42px;"
-                            type="file" name="foto">
+                            type="file" name="foto" required>
                         <br><br>
                         <i>Tamanho máximo: 200KB</i>
                     </div><br>
                     <label>Título</label><br>
                     <input style="
                         width: 95%; height: 35px;"
-                        type="text" name="titulo" 
-                        value="<?php echo $post->titulo?>" required><br><br>
+                        type="text" name="titulo" required><br><br>
                     <label>Descrição</label><br>
                     <textarea style="
                         width: 95%; height: 300px;"  
                         type="text" name="desc" required
-                        ><?php echo $post->desc?></textarea><br><br>
+                        ></textarea><br><br>
                 </div>     
             </div>          
         </div>
-<br>
-<br>
-<br>
-        <div class="menu" class="btn btn-info" style=""
-            >
-            <a  class="btn btn-info" style=""
-                href="<?php echo base_url('usuario') ?>">
-                Voltar
+
+        <div class="menu" style="
+            display: table; width: 15%; height: 50px; float: left;
+            margin: 60px 0 0 0;">
+            <a style="text-decoration: none;"
+                href="<?php echo base_url('usuario') ?>"
+                <button class="btn btn-success btn-info" type="submit" >Voltar</button>
             </a>
             <br>
             <br>
-            <input type="submit"   value="Editar &#x00A;Post" class="btn btn-info" style="
-              
-                 
-                "/>
-            <br>
-            <br>
-            <a href="<?php echo base_url('usuario/delete_post/'.$post->idpost) ?>"
-                style="text-decoration: none;"
-                onclick="return confirm('Tem certeza que deseja excluir este post?')">                
-                <div class="btn btn-info" style=""
-                    >
-                    Deletar<br>Post
+            <button class="btn btn-success btn-info" type="submit" >Salvar<br>Post</button>
+                
+                <!-- &#x00A; -->
+            <!-- <a href="<?php echo base_url('usuario/edit_post/'.$usuario->idusuario) ?>"
+                style="text-decoration: none;">                
+                <div style="
+                    display: table; margin: 15px 0 0; text-align: center;
+                    padding: 18px; border-width: 2px; border-style: solid; 
+                    background: #f4f4f4;">
+                    EDITAR<br>POST
                 </div>
-            </a>
+            </a> -->
         </div>
     </form>
 
@@ -118,10 +111,6 @@
         <h4>Usuario</h4>
         <pre>
             <?php print_r($usuario) ?>
-        </pre>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
         </pre>
         <?php if ($this->session->flashdata('foto_data')): ?>
         <h4>Foto_data</h4>

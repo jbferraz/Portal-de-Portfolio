@@ -42,7 +42,8 @@ function d_topusuario()
         'nome_cidade' => 'sem_cidade',
         'sigla_estado' => 'no_e',
         'formacao' => 'sem_usuario',
-        'rate' => 0
+        'rate' => 0,
+        'foto' => 'img/default_img.png'
     );
 }
 
@@ -51,7 +52,7 @@ function d_post()
     return  (object) array
     (
         'idpost' => 0,
-        'foto' => 'img/post_img.jpg',
+        'foto' => 'img/default_img.png',
         'data_cadastro' => '0000-00-00 00:00:00',
         'data_alteracao' => '0000-00-00 00:00:00',
         'titulo' => 'sem_post',

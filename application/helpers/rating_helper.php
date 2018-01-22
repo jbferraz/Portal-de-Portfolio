@@ -23,7 +23,10 @@ function ratingMaker($avaliacao, $limit)
     $topusuario = array();
     $ct = 0;
     foreach ($av_split as $key => $value) {
-        $topusuario = array_merge($topusuario, $ci->ur_m->getAllUsuarioById($key));
+        $topusuario = array_merge($topusuario, $ci->ur_m->getAllUsuarioById($key));         
+        if (!$foto = $ci->pt_m->getUserImage($key)) // Foto do usuário
+            $foto = 'img/default_img.png';
+        $topusuario[$ct]->foto = $foto;
         $topusuario[$ct++]->rate = $value;
     }
 

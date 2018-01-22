@@ -280,8 +280,8 @@ class Usuario extends CI_Controller {
         if ($u_id === $old_post->usuario_id) { // Testa se usuário corresponde
             if (!empty($_FILES['foto']['name'])) {
                 $config = getUploadConfig($usuario->celular); //Foto config
-                $config['file_name'] = substr($old_post->foto, 4, 40); // Cut img/ (folder)
-                $old_ext = substr($old_post->foto, 44);
+                $config['file_name'] = substr($old_post->foto, 4, -4); // Cut img/ (folder)
+                $old_ext = substr($old_post->foto, -4);
                 $this->load->library('upload', $config);
 
                 if ($upload = !$this->upload->do_upload('foto')) {
@@ -289,7 +289,7 @@ class Usuario extends CI_Controller {
                     redirect(base_url('usuario/edit_post/'.$id));
                 } else {
                     $foto_data = $this->upload->data();
-                    $foto = substr($old_post->foto, 0, 44).$foto_data['file_ext']; // Cut/edit ext
+                    $foto = substr($old_post->foto, 0, -4).$foto_data['file_ext']; // Cut/edit ext
                     if ($old_ext != $foto_data['file_ext']) {
                         unlink($old_post->foto); // Deleta foto antiga se ext for diferente
                     }

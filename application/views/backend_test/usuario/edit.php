@@ -53,13 +53,8 @@
                     width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
         </a>
         <div style="float: right; padding: 15px;">
-        <?php if ($this->session->userdata('type') === '0'): ?>
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
             <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        <?php else: ?>
-            <!-- <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp; -->
-            <a href="<?php echo base_url('home/login') ?>">login</a>
-        <?php endif ?>
         </div>
     </div>
 

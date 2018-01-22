@@ -27,13 +27,16 @@
                     width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
         </a>
         <div style="float: right; padding: 15px;">
-            <?php if ($this->session->userdata('type') === '0'): ?>
-                <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-                <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-            <?php else: ?>
-                <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
-                <a href="<?php echo base_url('home/login') ?>">login</a>
-            <?php endif ?>
+        <?php if ($this->session->userdata('type') === '0'): ?>
+            <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
+            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
+        <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
+            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
+        <?php else: ?>
+            <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
+            <a href="<?php echo base_url('home/login') ?>">login</a>
+        <?php endif ?>
         </div>
     </div>
 
@@ -66,7 +69,7 @@
                         min-height: 10.7vw;">
                         <img src="<?php echo base_url($g->foto) ?>"
                             alt="Foto do post" style="
-                                width: 140%; position: relative; top: -0.7vw; left: -2.5vw;"> 
+                                width: 140%; position: relative; top: -1.2vw; left: -3.1vw;"> 
                     </div>
                     <h4 style="padding: 0; margin: 10px 0 0;">
                         <div style="display: block; max-width: 60%; 

@@ -55,6 +55,9 @@
         <?php if ($this->session->userdata('type') === '0'): ?>
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
             <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
+        <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
+            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
         <?php else: ?>
             <!-- <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp; -->
             <a href="<?php echo base_url('home/login') ?>">login</a>

@@ -30,6 +30,9 @@
         <?php if ($this->session->userdata('type') === '0'): ?>
             <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
             <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
+        <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
+            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
         <?php else: ?>
             <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
             <a href="<?php echo base_url('home/login') ?>">login</a>
@@ -66,9 +69,9 @@
                         border-width: 2px; border-style: solid; background: #f4f4f4;">
                         <div style="
                             display: block; width: 100%; max-height: 13vw; overflow: hidden;">
-                            <img src="<?php echo base_url('img/user_img.jpg') ?>" 
+                            <img src="<?php echo base_url($g->foto) ?>" 
                                 alt="Foto do usuário" style="
-                                    width: 100%; position: relative; top: -0.7vw;">
+                                    width: 135%; position: relative; top: -1.2vw; left: -3.3vw;">
                         </div>
                     </div>
                     <h3 style="padding: 0; margin: 0 0 0 44px;">

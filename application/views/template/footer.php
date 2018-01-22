@@ -11,7 +11,7 @@
                     <h3>Sobre</h3>
                     
                         <li><a href="<?php echo base_url('home/sobre') ?>">Sobre o site / Desenvolvedores </a></li>
-                        <li><a href="<?php echo base_url('login') ?>">Login</a></li>
+                        <li><a href="<?php echo base_url('home/login') ?>">Login</a></li>
                         <li><a href="<?php echo base_url('cadastro') ?>">Cadastro</a></li>
                     
                 </div>

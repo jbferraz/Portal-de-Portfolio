@@ -46,8 +46,9 @@
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
                     <div style="
                         display: block; width: 100%; max-height: 11vw; overflow: hidden;">
-                        <img src="<?php echo base_url('img/user_img.jpg') ?>" 
-                            alt="Foto do post" style="width: 100%; position: relative; top: -0.7vw;">
+                        <img src="<?php echo base_url($topusuario->foto)?>" 
+                            alt="Foto do post" style="
+                                width: 135%; position: relative; top: -1.1vw; left: -2.85vw;">
                     </div>
                 </div>
                 <br>
@@ -76,21 +77,21 @@
                     </h4>
                     <h4 style="padding: 0; margin: 10px 0 0 0;">
                         <?php if (isset($topusuario->linkedin)): ?>
-                        <a style="text-decoration: none;"
+                        <a style="text-decoration: none;" target="_blank"
                             href="<?php echo $topusuario->linkedin ?>"
                             >linkedin
                         </a>
                         &nbsp;
                         <?php endif ?>
                         <?php if (isset($topusuario->facebook)): ?>
-                        <a style="text-decoration: none;"
+                        <a style="text-decoration: none;" target="_blank"
                             href="<?php echo $topusuario->facebook ?>"
                             >facebook
                         </a>
                         &nbsp;
                         <?php endif ?>
                         <?php if (isset($topusuario->instagram)): ?>
-                        <a style="text-decoration: none;"
+                        <a style="text-decoration: none;" target="_blank"
                             href="<?php echo $topusuario->instagram ?>"
                             >instagram
                         </a>
@@ -162,8 +163,8 @@
             display: block; width: 70%; padding: 20px; margin: 50px auto 0;
             border-width: 2px; border-style: solid; background: #f4f4f4;">
             <a href="<?php echo base_url('post/'.$postone->idpost) ?>">
-                <div style="width: 100%; max-height: 25vw; overflow: hidden;">
-                    <img style="width: 115%; position: relative; top: -4vw; left: -4vw;"
+                <div style="width: 100%; max-height: 26vw; overflow: hidden;">
+                    <img style="width: 115%; position: relative; top: -4vw; left: -3.8vw;"
                         src="<?php echo base_url($postone->foto) ?>" 
                         alt="Foto do post">
                 </div>
@@ -173,7 +174,7 @@
             href="<?php echo base_url('post/'.$postone->idpost) ?>"
             >
             <h1 style="display: table; padding: 40px 0 0; font-size: 45px; margin: auto;">
-                <?php if ($postone->status === '0') echo '[Pendente] '; echo strtoupper($postone->titulo) ?>
+                <?php if ($postone->status === '0') echo '[Pendente] '; echo mb_strtoupper($postone->titulo) ?>
             </h1>
         </a>
         <h2 style="display: table; padding: 0; margin: auto;">
@@ -197,7 +198,7 @@
             </a>
         </div>
         <?php if (isset($post)): ?>
-        <?php foreach ($post as $g): ?>
+        <?php foreach ($post as $g):?>
             <div class="img_cell" style="
                 display: block; width: 70%; padding: 20px; margin: 50px auto 0;
                 border-width: 2px; border-style: solid; background: #f4f4f4;">
@@ -213,7 +214,7 @@
                 href="<?php echo base_url('post/'.$g->idpost) ?>"
                 >
                 <h1 style="display: table; padding: 20px 0 0; font-size: 35px; margin: auto;">
-                    <?php if ($g->status === '0') echo '[Pendente] '; echo strtoupper($g->titulo)?>
+                    <?php if ($g->status === '0') echo '[Pendente] '; echo mb_strtoupper($g->titulo)?>
                 </h1>
             </a>
             <h3 style="display: table; padding: 0; margin: auto;">
