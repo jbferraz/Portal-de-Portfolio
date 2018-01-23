@@ -37,6 +37,13 @@
                     <li role="presentation" ><a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a></li>
                         <li role="presentation" ><a href="<?php echo base_url('home/logoff') ?>">Logoff</a></li>
                          </ul>
+                         <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <ul class="nav navbar-nav" style="float:right">
+                <li role="presentation" ><a href="<?php echo base_url('home') ?>">Pagina inicial</a></li>
+                    <li role="presentation" ><a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a></li>
+                        <li role="presentation" ><a href="<?php echo base_url('home/logoff') ?>">Logoff</a></li>
+                         </ul>
+            
             
         <?php else: ?>
             

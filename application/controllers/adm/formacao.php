@@ -62,17 +62,16 @@ class formacao extends CI_Controller {
         $data['Formacao'] = $this->gn_m->getGeneric('idformacao', 'asc', 'formacao');
             $u_id = $this->session->userdata('id');
            // $old_post = $this->pt_m->getPostByPostId($id);
-            foreach ($data['Formacao'] as $g){
-                echo "$g->idformacao $g->formacao";
-                echo "<a href=". base_url('adm/formacao/delete/'.$g->idformacao)  .">  Deletar 
-                    </a>
-                    
-<br>"; 
-                
-                 
-                
-            }
+//            foreach ($data['Formacao'] as $g){
+//                echo "$g->idformacao $g->formacao";
+//                echo "<a href=". base_url('adm/formacao/delete/'.$g->idformacao)  .">  Deletar 
+//                    </a>
+//                    
+//<br>";  
+//            }
+            $this->load->view('template/header');
             $this->load->view('adm/formacao/formacao', $data);
+            $this->load->view('template/footer');
           //  $this->load->view('adm/formacao/formacao', $data);
     }
     }

@@ -20,7 +20,7 @@ class Adm extends CI_Controller {
         //$this->load->helper('rating');
         $this->load->helper('db_defaults');
         $this->session->set_userdata('referred_from', current_url()); // Save referred_from
-        
+        //echo $this->session->userdata('referred_from', current_url());
         $data['adm'] = $this->gn_m->getGenericById('idusuario', $id, 'usuario');
 
         //$data['avaliacao'] = $this->gn_m->getGenericWhere('status', 0, 'avaliacoes', 'data_avaliacoes', 'desc');

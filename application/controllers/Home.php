@@ -95,6 +95,14 @@ class Home extends CI_Controller {
 		redirect(base_url('home/login'));
 	}
 
+	function sobre() 
+	{
+		$data['usuario'] = $this->gn_m->getGeneric('nome_completo', 'asc', 'usuario');
+
+		$this->load->helper('layout'); // Carrega a view
+        viewLoader('home/sobre', $data);
+	}
+
 	function logoff() 
 	{
 		$this->session->unset_userdata('id');
