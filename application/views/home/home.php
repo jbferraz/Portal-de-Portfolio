@@ -48,16 +48,18 @@
     <div class="posts" style="
         display: table; width: 60%; float: left;  
         ">
-        <div style="padding: 20px; width: 110%; display: table; padding-bottom: 0px;">
+        <div style="padding: 20px; width: 100%; display: table; padding-bottom: 0px;">
             <?php foreach ($post as $g): ?>
             <a href="<?php echo base_url('post/'.$g->idpost) ?>"
                style="color: #000; text-decoration: none;">
                 <div class="posts_cell" style="
                     display: table; width: 25%; min-width: 170px; height: 220px; float: left; 
-                    padding: 20px; margin: 0 0 20px 20px; background: #6699ff; 
+                    padding: 20px; margin: 0 0 20px 20px; background: #5bc0de; border-color: #2ba1ce;
                     border-width: 2px; border-style: solid;">
                     <img src="<?php echo base_url($g->foto) ?>" 
-                        alt="Foto do post" style="width: 100%;"> 
+                        alt="Foto do post" style="width: 100%;">
+                    
+        
                     <h4 style="padding: 0; margin: 10px 0 0;">
                         <?php echo $g->titulo ?>
                     </h4>
@@ -68,11 +70,18 @@
                     <h5 style="padding: 0; margin: 0;">
                         <?php echo ' ['.$g->data_alteracao.']'?>
                     </h5>
+                    
+       
                 </div>
                 
             </a>
             <?php endforeach ?>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
     
 
@@ -84,9 +93,16 @@
         <a href="<?php echo base_url('usuario_home/'.$g->idusuario) ?>" style="
             text-decoration: none; overflow: scroll; ">
             <h4 style="margin: 0 0 3px 0; padding: 0;">
-                <?php echo $g->nome_completo.' ['.$g->rate.']' ?>
+  
+                
+                <?php echo $g->nome_completo ?>
+                <br>
+                 <?php for ($i=0;$i<intval($g->rate);$i++):?>
+                <img style="width: 15%;" src="<?php echo base_url('img/star1.png') ?>">
+                <?php endfor ?>
             </h4>
         </a>
+            <br>
         <h5 style="margin: 0 0 3px 0; padding: 0;">
             <?php echo $g->formacao ?>
         </h5>
@@ -98,6 +114,8 @@
         </div>
     </div>
 
+    <br>
+    <br>
     
 
 </body>

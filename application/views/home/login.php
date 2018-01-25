@@ -72,13 +72,11 @@
         </div>
     </form>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
 
 </body>
 </html>

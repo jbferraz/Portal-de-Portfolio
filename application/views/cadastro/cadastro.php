@@ -148,38 +148,15 @@
                 </select> 
                 <br>
                 <button class="btn btn-success btn-block" type="submit" style="margin-top:10px;">Salvar </button>
-                
+                <br>
+        <br>
+        <br>
+        <br>
+        <br>
             </div>     
         </div>
     </form>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Formacao</h4>
-        <pre>
-            <?php print_r($formacao) ?>
-        </pre>
-        <h4>Estado</h4>
-        <pre>
-            <?php print_r($estado) ?>
-        </pre>
-        <?php if(isset($hash)): ?>
-        <h4>Hash</h4>
-        <pre>
-            <?php print_r($hash) ?>
-        </pre>
-        <?php endif ?>
-        <?php if(isset($avaliacao)): ?>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <?php endif ?>
-    </div>
-
+    
 </body>
 </html>

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Projeto Curriculo</title>
+        <title><?php echo $mix->title_upper?></title>
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('https://fonts.googleapis.com/css?family=Roboto:400,500,700'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/fonts/ionicons.min.css'); ?>">
@@ -37,6 +37,13 @@
                     <li role="presentation" ><a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a></li>
                         <li role="presentation" ><a href="<?php echo base_url('home/logoff') ?>">Logoff</a></li>
                          </ul>
+                         <?php elseif ($this->session->userdata('type') === '1'): ?>
+            <ul class="nav navbar-nav" style="float:right">
+                <li role="presentation" ><a href="<?php echo base_url('home') ?>">Pagina inicial</a></li>
+                    <li role="presentation" ><a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a></li>
+                        <li role="presentation" ><a href="<?php echo base_url('home/logoff') ?>">Logoff</a></li>
+                         </ul>
+            
             
         <?php else: ?>
             

@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<title>Submit</title>
-    <link rel="stylesheet" type="text/css" 
-        href="<?php echo base_url() ?>"/>
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <script type="text/javascript">
-        
-    </script>
-</head>
-<body>
-
-    <div class="topo" style="
-        display: table; width: 100%; height: 30px;
-        background: #f4f4f4;">
-        <a href="<?php echo base_url() ?>" style="
-            text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /create_post</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/submit</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
-        </a>
-        <div style="float: right; padding: 15px;">
-            <a href="<?php echo base_url('avaliacao?h='.$chave->chave) ?>"
-                ><?php echo $chave->chave ?></a>&nbsp;
-            <!-- <a href="<?php echo base_url('home/logoff') ?>">logoff</a> -->
-        </div>
-    </div>
-
-    <?php
-    if ($this->session->flashdata('success_msg')) {
+<?php if ($this->session->flashdata('success_msg')) {
         ?>
         <div class="alert_true" style="
             width: 50%; padding: 25px; margin: 30px auto 0; 
@@ -72,10 +32,10 @@
             display: table; width: 30%; padding: 20px; margin: 30px auto 0;
             background: #f4f4f4;"> <!-- #f4f4f4 -->
             <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
-                CELULAR: <?php echo $mix['celular']?>
+                CELULAR: <?php echo $mix->celular?>
             </b>
             <p style="font-family: monospace; font-size: 17px; margin: 5px 0 0; float: right;">
-                NOTA: [<?php echo $mix['rate']?>]
+                NOTA: [<?php echo $mix->rate?>]
             </p>
         </div>
         <h1 style="display: table; margin: 20px auto 0;">
@@ -85,22 +45,3 @@
             Obrigado pela contribuição!
         </h1>
     </div>
-
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Chave</h4>
-        <pre>
-            <?php print_r($chave) ?>
-        </pre>
-        <h4>Mix</h4>
-        <pre>
-            <?php print_r($mix) ?>
-        </pre>
-    </div>
-
-</body>
-</html>

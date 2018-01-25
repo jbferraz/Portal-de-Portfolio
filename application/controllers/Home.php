@@ -51,7 +51,7 @@ class Home extends CI_Controller {
             $data['topusuario'][] = d_topusuario();
 
 		$this->load->helper('layout'); // Carrega a view
-        viewLoader('home/home', $data);
+		viewLoader('home/home', $data);
 	}
 
 	function login() 
@@ -93,6 +93,14 @@ class Home extends CI_Controller {
 		}
 
 		redirect(base_url('home/login'));
+	}
+
+	function sobre() 
+	{
+		$data['usuario'] = $this->gn_m->getGeneric('nome_completo', 'asc', 'usuario');
+
+		$this->load->helper('layout'); // Carrega a view
+        viewLoader('home/sobre', $data);
 	}
 
 	function logoff() 

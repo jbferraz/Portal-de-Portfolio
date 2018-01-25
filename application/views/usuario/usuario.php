@@ -40,12 +40,16 @@
                     display: table; width:125%; padding: 20px; 
                     border-width: 2px; border-style: solid; background: #f4f4f4;">
                     <img src="<?php echo base_url('img/user_img.jpg') ?>" 
-                        alt="Foto do post" style="width: 100%;"> 
+                        alt="Foto do post" style="width: 100%;"> <!-- base_url($topusuario->foto) -->
                 </div>
                 <br>
                 <div style="display: block; margin: 0 0 0 10px; width: 110%;">
                     <h2 style="padding: 0; margin: 0;">
-                        <?php echo $topusuario->nome_completo.' ['.$topusuario->rate.']' ?>
+                        <?php echo $topusuario->nome_completo ?>
+                          <?php for ($i=0;$i<intval($topusuario->rate);$i++):?>
+                <img style="width: 15%;" src="<?php echo base_url('img/star1.png') ?>"> 
+                <?php endfor ?>
+                        
                     </h2>
                     
                     <h5 style="padding-top:  10px; margin: 0;">
@@ -211,27 +215,7 @@
         <?php endif ?>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <h4>Top Usuario</h4>
-        <pre>
-            <?php print_r($topusuario) ?>
-        </pre>
-        <h4>Post One</h4>
-        <pre>
-            <?php print_r($postone) ?>
-        </pre>
-        <?php if(isset($post)): ?>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <?php endif ?>
-    </div>
+    
 
 </body>
 </html>

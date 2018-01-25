@@ -115,17 +115,7 @@
         </form>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Chave</h4>
-        <pre>
-            <?php print_r($chave) ?>
-        </pre>
-    </div>
+    
 
 </body>
 </html>

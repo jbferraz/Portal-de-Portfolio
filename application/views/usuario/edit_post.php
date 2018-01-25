@@ -96,7 +96,7 @@
             </a>
             <br>
             <br>
-            <input type="submit"   value="Editar &#x00A;Post" class="btn btn-info" style="
+            <input type="submit"  style="width:70px; white-space: normal" value="Salvar &#x00A;Post" class="btn btn-info" style="
               
                  
                 "/>
@@ -113,23 +113,7 @@
         </div>
     </form>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <?php if ($this->session->flashdata('foto_data')): ?>
-        <h4>Foto_data</h4>
-        <pre>
-            <?php print_r($this->session->flashdata('foto_data'))?>
-        </pre>
-        <?php endif ?>
-    </div>
+    
 
 </body>
 </html>

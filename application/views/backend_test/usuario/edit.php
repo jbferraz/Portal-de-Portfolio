@@ -1,65 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<title>Edit</title>
-    <link rel="stylesheet" type="text/css" 
-        href="<?php echo base_url() ?>"/>
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <script src="<?php echo base_url('assets/jquery/jquery.min.js') ?>"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('select[name="estado"]').on('click', function() {
-                var stateID = $(this).val();
-                if(stateID) {
-                    $.ajax({
-                        url: '<?php echo base_url('ajax/ajaxCidade/')?>'+stateID,
-                        type: "GET",
-                        dataType: "json",
-                        success:function(data) {
-                            $('select[name="cidade"]').empty();
-                            $.each(data, function(key, value) {
-                                $('select[name="cidade"]').append('<option value="'+ value.idcidade +'">'+ value.nome_cidade +'</option>');
-                            });
-                            $('select[name="cidade"]').prop('disabled', false);
-                            $('select[name="cidade"]').val(<?php echo $usuario->cidade_id?>).trigger("change");
-                        }
-                    });
-                }else{
-                    $('select[name="cidade"]').empty();
-                }
-            });
-        });
-    </script>
-</head>
-<body>
-
-    <div class="topo" style="
-        display: table; width: 100%; height: 30px;
-        background: #f4f4f4;">
-        <a href="<?php echo base_url() ?>" style="
-            text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /edit</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/edit</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
-        </a>
-        <div style="float: right; padding: 15px;">
-            <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        </div>
-    </div>
-
-    <?php
-    if ($this->session->flashdata('success_msg')) {
+<?php if ($this->session->flashdata('success_msg')) {
         ?>
         <div class="alert_true" style="
             width: 50%; padding: 25px; margin: 30px auto 0; 
@@ -192,6 +131,7 @@
                 </div>     
             </div>
         </form>
+        <br><br><br>
         
     </div>
     <div style="
@@ -207,35 +147,3 @@
             </div>
         </a>
     </div>
-    
-            
-    <div class="var_dump" style="margin: auto; display: table;">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Formacao</h4>
-        <pre>
-            <?php print_r($formacao) ?>
-        </pre>
-        <h4>Estado</h4>
-        <pre>
-            <?php print_r($estado) ?>
-        </pre>
-        <?php if(isset($hash)): ?>
-        <h4>Hash</h4>
-        <pre>
-            <?php print_r($hash) ?>
-        </pre>
-        <?php endif ?>
-        <?php if(isset($avaliacao)): ?>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <?php endif ?>
-    </div>
-
-</body>
-</html>

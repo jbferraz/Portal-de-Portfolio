@@ -106,19 +106,7 @@
         </div>
     </form>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <?php if ($this->session->flashdata('foto_data')): ?>
-        <h4>Foto_data</h4>
-        <pre>
-            <?php print_r($this->session->flashdata('foto_data'))?>
-        </pre>
-        <?php endif ?>
-    </div>
+    
 
 </body>
 </html>

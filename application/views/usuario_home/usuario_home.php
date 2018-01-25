@@ -50,7 +50,11 @@
                 <br>
                 <div style="display: block; margin: 0 0 0 10px; width: 110%;">
                     <h2 style="padding: 0; margin: 0;">
-                        <?php echo $topusuario->nome_completo.' ['.$topusuario->rate.']' ?>
+                        <?php echo $topusuario->nome_completo?>
+                        <br>
+                        <?php for ($i=0;$i<intval($topusuario->rate);$i++):?>
+                <img style="width: 15%;" src="<?php echo base_url('img/star1.png') ?>">
+                <?php endfor ?>
                     </h2>
                     
                     <h5 style="padding-top:  10px; margin: 0;">
@@ -62,7 +66,7 @@
                     </h6>
                     <div style="display: table; width: 90%; margin: auto; text-align: justify;">
                         <p style="padding: 0; margin: 15px 0 15px 0;">
-                            <?php for ($i = 0; $i < 15; $i++) echo $topusuario->desc.' ' ?>
+                            <?php echo $topusuario->desc.' ' ?>
                         </p>
                     </div>
                     <hr>
@@ -126,7 +130,7 @@
         <p style="
             display: table; width: 80%; padding: 30px; text-align: justify; 
             font-size: 18px; margin: auto;">
-            <?php for ($i = 0; $i < 100; $i++) echo $postone->fulldesc.' ' ?>
+            <?php  echo $postone->fulldesc.' ' ?>
         </p>
         <?php if (isset($post)): ?>
         <?php foreach ($post as $g): ?>
@@ -169,27 +173,7 @@
             </a>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <h4>Top Usuario</h4>
-        <pre>
-            <?php print_r($topusuario) ?>
-        </pre>
-        <h4>Post One</h4>
-        <pre>
-            <?php print_r($postone) ?>
-        </pre>
-        <?php if(isset($post)): ?>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <?php endif ?>
-    </div>
+    
 
 </body>
 </html>

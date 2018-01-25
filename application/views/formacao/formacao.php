@@ -65,7 +65,11 @@
                             alt="Foto do usuário" style="width: 100%;"> 
                     </div>
                     <h3 style="padding: 0; margin: 0 0 0 44px;">
-                        <?php echo $g->nome_completo.' ['.$g->rate.']' ?>
+                        <?php echo $g->nome_completo ?>
+                        <br>
+                        <?php for ($i=0;$i<intval($g->rate);$i++):?>
+                <img style="width: 15%;" src="<?php echo base_url('img/star1.png') ?>">
+                <?php endfor ?>
                     </h3>
                     <h6 style="padding-top:  10px; margin: 0 0 0 44px;">
                         <?php echo $g->nome_cidade.' – '.$g->sigla_estado ?>

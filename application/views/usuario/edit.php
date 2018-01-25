@@ -183,7 +183,7 @@
         <a href="<?php echo base_url('usuario/delete') ?>"
             style="text-decoration: none;"
             onclick="return confirm('Tem certeza que deseja excluir esta conta?')">                
-            <button class="btn btn-info  "<br>DELETAR<br>USUÁRIO</button>
+            <button class="btn btn-info  "<br>Deletar<br>Usuário</button>
             
         
             <br>
@@ -202,33 +202,7 @@
     </div>
     
             
-    <div class="var_dump" style="margin: auto; display: table;">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Formacao</h4>
-        <pre>
-            <?php print_r($formacao) ?>
-        </pre>
-        <h4>Estado</h4>
-        <pre>
-            <?php print_r($estado) ?>
-        </pre>
-        <?php if(isset($hash)): ?>
-        <h4>Hash</h4>
-        <pre>
-            <?php print_r($hash) ?>
-        </pre>
-        <?php endif ?>
-        <?php if(isset($avaliacao)): ?>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <?php endif ?>
-    </div>
+    
 
 </body>
 </html>

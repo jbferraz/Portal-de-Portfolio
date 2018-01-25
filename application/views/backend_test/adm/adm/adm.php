@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<title>Adm</title>
-    <link rel="stylesheet" type="text/css" 
-        href="<?php echo base_url() ?>"/>
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="topo" style="
-        display: table; width: 100%; height: 30px; float: left;
-        background: #f4f4f4">
-        <a href="<?php echo base_url() ?>" style="
-            text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /adm</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/adm</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
-        </a>
-        <div style="float: right; padding: 15px;">
-            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        </div>
-    </div>
-
     <div class="user" style="
         display: table; width: 18%; float: left; word-break: break-all;
         ">
@@ -147,7 +113,7 @@
                 <div style="display: table; float: right;
                     width: 9%; margin: 0.5%;">
                     <a href="<?php echo base_url('adm/avaliacao/validate/'.$g->chave_hash_id) ?>"
-                        style="margin: 0; padding: 0 0 0 5px;">Validar</a>
+                        style="margin: 0; padding: 0 0 0 5px;">Validar</a><br>
                     <a href="<?php echo base_url('adm/avaliacao/delete/'.$g->chave_hash_id) ?>"
                         style="margin: 0; padding: 0 0 0 5px;"
                         onclick="return confirm('Tem certeza que deseja excluir esta avaliação?')">Deletar</a>
@@ -173,20 +139,121 @@
             <div style="display: table; width: 90%; height: 4px; 
                 background: #f4f4f4; float: left;"></div>
         </div>
-        <p style="display: table; margin: auto;">test</p>
-    </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Adm</h4>
-        <pre>
-            <?php print_r($adm) ?>
-        </pre>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-    </div>
+        <div class="usuario" 
+            style="display: table; width: 25%; margin: 20px 0 0 7vw;
+            height: 25vw; min-height: 345px; float: left;
+            ">
+            <div style="
+                display: table; width: 100%; margin: 0 0 0 0;
+                background: #f4f4f4;">
+                <?php if (!empty($usuario)): ?>
+                <?php foreach ($usuario as $g): ?>
+                    <div style="
+                        display: table; width: 96.5%; background: #fbfbfb; margin: 4px auto 0;
+                        ">
+                        <a href="<?php echo base_url('usuario_home/'.$g->idusuario) ?>" style="
+                            display: table; padding: 2px 20px 2px 20px; font-size: 18px;
+                            text-decoration: none; width: 86%;
+                        "><?php echo $g->nome_completo?></a>
+                        <!-- <p style="
+                            display: table; margin: 0; padding: 0px 4px 2px 20px;
+                            font-size: 10px; width: 100%;
+                            ">
+                            <?php echo $g->nome_cidade.' – '.$g->sigla_estado?>
+                            <br>
+                            <?php echo $g->formacao?>
+                        </p> -->
+                        <p style="
+                            display: table; margin: 0; padding: 0px 20px 2px 20px;
+                            font-size: 12px; width: 86%;
+                            ">
+                            <?php echo $g->email?>
+                            <br>
+                            <?php echo $g->celular?>
+                        </p>
+                        <p style="
+                            display: table; margin: 0; padding: 4px 20px 2px 20px;
+                            font-size: 12px; width: 86%; word-break: break-all;
+                            ">
+                            <?php echo $g->desc100?>
+                        </p>
+                        <a href="<?php echo base_url('adm/usuarios/delete/'.$g->idusuario) ?>" style="
+                            display: table; padding: 2px 20px 4px 20px; font-size: 12px;
+                            text-decoration: none; float: right;"
+                            onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+                            Deletar
+                        </a>
+                    </div>
+                <?php endforeach ?>
+                <?php else: ?>
+                    empty
+                <?php endif ?>
+            </div>
+            <div style="display: table; width: 100%; margin: 0 0 0 0;
+                background: #f4f4f4; height: 4px;"></div>
+        </div>
 
-</body>
-</html>
+        <div class="post" 
+            style="display: table; width: 48%; margin: 20px 0 0 4vw;
+            height: 25vw; min-height: 345px; float: left;
+            ">
+            <div style="
+                display: table; width: 100%; margin: 0 0 0 0;
+                background: #f4f4f4;">
+                <?php if (!empty($post)): ?>
+                <?php foreach ($post as $g): ?>
+                    <div style="
+                        display: table; width: 96.5%; background: #fbfbfb; margin: 4px auto 0;
+                        ">
+                        <div class="img_cell" style="
+                            display: block; width: 98%; margin: 4px auto 0;
+                            background: #f4f4f4; overflow: hidden;">
+                            <a href="<?php echo base_url('post/'.$g->idpost) ?>">                
+                                <div style="display: block; width: 100%; height: 60px; overflow: hidden;">
+                                    <img style="display: block; width: 100%; position: relative; top: -7vw; overflow: hidden;"
+                                        src="<?php echo base_url($g->foto) ?>" 
+                                        alt="Foto do post">
+                                </div>
+                            </a>
+                        </div>
+                        <a style="padding: 0; text-decoration: none; overflow: hidden;"
+                            href="<?php echo base_url('post/'.$g->idpost) ?>"
+                            >
+                            <h1 style="display: table; padding: 0; font-size: 15px; margin: 0 4px 0 4px; 
+                                float: left; overflow: hidden;">
+                                <?php echo mb_strtoupper($g->titulo)?>
+                            </h1>
+                        </a>
+                        <h3 style="display: table; padding: 0; font-size: 15px; margin: 0 4px 0 4px; 
+                            float: right; overflow: hidden;">
+                            [<?php echo $g->data_alteracao ?>]
+                        </h3>
+                        <p style="display: table; width: 100%; height: 0; margin: 0; overflow: hidden;" ></p>
+                        <p style="
+                            display: table; text-align: justify; 
+                            font-size: 13px; padding: 0; margin: 0 4px 0 4px; overflow: hidden;">
+                            <?php echo $g->desc100.' fowehy wehyf owehofhweohfo weo fowehofho wefhwo'?>
+                        </p>
+                        <a href="<?php echo base_url('adm/posts/delete/'.$g->idpost) ?>" style="
+                            display: table; padding: 0px 20px 4px 0px; font-size: 12px;
+                            text-decoration: none; float: right;"
+                            onclick="return confirm('Tem certeza que deseja excluir este post?')">
+                            Deletar
+                        </a>
+                        <a href="<?php echo base_url('adm/posts/validate/'.$g->idpost) ?>" style="
+                            display: table; padding: 0px 20px 4px 0px; font-size: 12px;
+                            text-decoration: none; float: right;">
+                            Validar
+                        </a>
+                    </div>
+                <?php endforeach ?>
+                <?php else: ?>
+                    empty
+                <?php endif ?>
+            </div>
+            <div style="display: table; width: 100%; margin: 0 0 0 0;
+                background: #f4f4f4; height: 4px;"></div>
+        </div>
+        <!-- <p style="display: table; margin: 0 0 0 10vw;" >test</p> -->
+    </div>

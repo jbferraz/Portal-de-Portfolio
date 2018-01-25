@@ -98,7 +98,7 @@ class Usuario extends CI_Controller {
             $data['formacao'][] = d_formacao();
 
         $this->load->helper('layout'); // Carrega a view
-        viewLoader('usuario/edit', $data);
+        viewLoader('usuario/edit', $data, 'edit');
         }
     }
 
@@ -245,6 +245,8 @@ class Usuario extends CI_Controller {
         else if (is_int($id = (int) $id) && is_numeric($id)) { // Testa se id é um número válido
             $this->load->model('Post_model', 'pt_m');
             $u_id = $this->session->userdata('id');
+            if ($this->session->flashdata('foto_data'))
+                $data['foto_data'] = $this->session->flashdata('foto_data');
 
             $data['usuario'] = $this->gn_m->getGenericById('idusuario', $u_id, 'usuario');
             $data['post'] = $this->pt_m->getPostByPostId($id);
@@ -280,16 +282,20 @@ class Usuario extends CI_Controller {
         if ($u_id === $old_post->usuario_id) { // Testa se usuário corresponde
             if (!empty($_FILES['foto']['name'])) {
                 $config = getUploadConfig($usuario->celular); //Foto config
-                $config['file_name'] = substr($old_post->foto, 4, -4); // Cut img/ (folder)
-                $old_ext = substr($old_post->foto, -4);
+                //$ext_count = (-1-strlen(pathinfo($old_post->foto)['extension']));
+                $ext_count = strrpos($old_post->foto, '.')-strlen($old_post->foto); // mb_strrpos()
+                //echo $old_post->foto.'<br>'.$ext_count;
+                $config['file_name'] = substr($old_post->foto, 4, $ext_count); // Cut img/ (folder)
+                $old_ext = substr($old_post->foto, $ext_count);
                 $this->load->library('upload', $config);
 
                 if ($upload = !$this->upload->do_upload('foto')) {
+                    //$this->session->set_flashdata('error_msg', $upload['error'].' (error)');
                     $this->session->set_flashdata('error_msg', 'Erro ao enviar foto');
                     redirect(base_url('usuario/edit_post/'.$id));
                 } else {
                     $foto_data = $this->upload->data();
-                    $foto = substr($old_post->foto, 0, -4).$foto_data['file_ext']; // Cut/edit ext
+                    $foto = substr($old_post->foto, 0, $ext_count).$foto_data['file_ext']; // Cut/edit ext
                     if ($old_ext != $foto_data['file_ext']) {
                         unlink($old_post->foto); // Deleta foto antiga se ext for diferente
                     }
@@ -367,7 +373,7 @@ class Usuario extends CI_Controller {
                 }
             }
 
-            $data['mix']['chave_count'] = count($data['chave']);
+            $data['mix'] = (object) array ('chave_count' => count($data['chave']));
 
             $this->load->helper('layout'); // Carrega a view
             viewLoader('usuario/chave', $data);

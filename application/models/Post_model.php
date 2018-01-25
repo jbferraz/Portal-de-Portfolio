@@ -170,4 +170,34 @@ class Post_model extends CI_Model {
         else
             return false;
     }
+
+    /* ------------------------------- ADM ------------------------------- */
+
+    function getAllUnverifiedPost()
+    {
+        $this->db->order_by('data_alteracao', 'desc');
+        $this->db->select(
+            'post.idpost,
+            post.foto,
+            post.data_cadastro,
+            post.data_alteracao,
+            post.titulo,
+            post.status,
+            post.status_adm,
+            usuario_id,
+            usuario.nome_completo');
+        $this->db->select('SUBSTRING(post.desc, 1, 100)', FALSE);
+
+        $this->db->limit(3); // Limite de resultados
+        $this->db->from('post, usuario');
+        $this->db->where('post.status = 0');
+        $this->db->where('post.usuario_id = usuario.idusuario');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+            return $query->result();
+        else
+            return false;
+    }
 }

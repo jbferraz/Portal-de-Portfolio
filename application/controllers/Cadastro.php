@@ -37,7 +37,7 @@ class Cadastro extends CI_Controller {
             $data['estado'][] = d_estado();
 
         $this->load->helper('layout'); // Carrega a view
-        viewLoader('cadastro/cadastro', $data);
+        viewLoader('cadastro/cadastro', $data, 'cadastro');
     }
 
     function submit()

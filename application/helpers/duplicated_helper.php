@@ -76,7 +76,7 @@ function getUploadConfig($phone) {
     $config = array
     (
         'upload_path' => './img',
-        'allowed_types' => 'gif|jpg|png',
+        'allowed_types' => 'gif|jpg|png|jpeg',
         'max_size' => 200,
         'file_name' => sha1($phone.microtime(true).mt_rand(0, 10000)),
         'overwrite' => TRUE

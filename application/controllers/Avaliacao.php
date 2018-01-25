@@ -75,10 +75,11 @@ class Avaliacao extends CI_Controller {
 
     function submit() 
     {
+        //$data['mix'] = new stdClass();
         if ($this->session->userdata('type') !== '2') 
             redirect(base_url('home/logoff'));
-        else if (!empty($data['mix']['rate'] = $this->input->post('rate')) &&      // Só carrega a página
-                !empty($data['mix']['celular'] = $this->input->post('celular'))) { // se tiver post
+        else if (!empty($data['mix'] = (object) array ('rate' => $this->input->post('rate'))) &&      // Só carrega a página
+                !empty($data['mix']->celular = $this->input->post('celular'))) { // se tiver post
             $this->load->model('Chave_model', 'cv_m');
             $id = $this->session->userdata('id');
             $hash = $this->session->userdata('hash');
@@ -93,12 +94,12 @@ class Avaliacao extends CI_Controller {
                 if (!$avaliacao) {
                     //echo '<br>empty rate key';
                     $celular = 
-                        $this->gn_m->getGenericWhere('celular_cliente', $data['mix']['celular'], 'avaliacoes', null, null)[0];
+                        $this->gn_m->getGenericWhere('celular_cliente', $data['mix']->celular, 'avaliacoes', null, null)[0];
                     if (!$celular) {
                         //echo '<br>new phone';
                         $this->load->helper('duplicated');
                         $c_rate = // !!! --- Não testa se celular é número --- !!!
-                            getAvaliacao($data['chave']->idchave, $data['mix']['celular'], $data['mix']['rate'], 0, $data['chave']->usuario_id);
+                            getAvaliacao($data['chave']->idchave, $data['mix']->celular, $data['mix']->rate, 0, $data['chave']->usuario_id);
                         //$rate = true;
                         $rate = $this->gn_m->submit('avaliacoes', $c_rate);
                         if ($rate) {

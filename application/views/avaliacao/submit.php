@@ -70,10 +70,10 @@
             display: table; width: 30%; padding: 20px; margin: 30px auto 0;
             background: #f4f4f4;"> <!-- #f4f4f4 -->
             <b style="font-family: monospace; font-size: 20px; margin: 3px 0 0; float: left;">
-                CELULAR: <?php echo $mix['celular']?>
+                CELULAR: <?php echo $mix->celular?>
             </b>
             <p style="font-family: monospace; font-size: 17px; margin: 5px 0 0; float: right;">
-                NOTA: [<?php echo $mix['rate']?>]
+                NOTA: [<?php echo $mix->rate?>]
             </p>
         </div>
         <h1 style="display: table; margin: 20px auto 0;">
@@ -84,21 +84,6 @@
         </h1>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-        <h4>Chave</h4>
-        <pre>
-            <?php print_r($chave) ?>
-        </pre>
-        <h4>Mix</h4>
-        <pre>
-            <?php print_r($mix) ?>
-        </pre>
-    </div>
-
+    
 </body>
 </html>

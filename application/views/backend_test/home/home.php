@@ -1,45 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<title>Home</title>
-    <link rel="stylesheet" type="text/css" 
-        href="<?php echo base_url() ?>"/>
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="topo" style="
-        display: table; width: 100%; height: 30px; float: left;
-        background: #f4f4f4">
-        <a href="<?php echo base_url() ?>" style="
-            text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /home</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/home</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
-        </a>
-        <div style="float: right; padding: 15px;">
-        <?php if ($this->session->userdata('type') === '0'): ?>
-            <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        <?php elseif ($this->session->userdata('type') === '1'): ?>
-            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        <?php else: ?>
-            <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
-            <a href="<?php echo base_url('home/login') ?>">login</a>
-        <?php endif ?>
-        </div>
-    </div>
-
     <div class="menu" style="
         display: table; width: 20%; float: left; 
         ">
@@ -73,7 +31,7 @@
                     </div>
                     <h4 style="padding: 0; margin: 10px 0 0;">
                         <div style="display: block; max-width: 60%; 
-                            max-height: 1em; float: left; overflow:hidden; word-break: break-all;">
+                            max-height: 1em; float: left; overflow: hidden; word-break: break-all;">
                             <?php echo $g->titulo ?>
                         </div>
                         <div style="float: right;">
@@ -93,7 +51,7 @@
             <?php endforeach ?>
         </div>
     </div>
-
+    
     <div class="rating" style="
         display: table; width: 14%; float: left; 
         ">
@@ -115,26 +73,3 @@
         <?php endforeach ?>   
         </div>
     </div>
-
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Formacao</h4>
-        <pre>
-            <?php print_r($formacao) ?>
-        </pre>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <h4>Top Usuario</h4>
-        <pre>
-            <?php print_r($topusuario) ?>
-        </pre>
-    </div>
-
-</body>
-</html>

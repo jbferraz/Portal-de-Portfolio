@@ -1,45 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-	<title>Usuario_home</title>
-    <link rel="stylesheet" type="text/css" 
-        href="<?php echo base_url() ?>"/>
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="topo" style="
-        display: table; width: 100%; height: 30px; float: left;
-        background: #f4f4f4">
-        <a href="<?php echo base_url() ?>" style="
-            text-decoration: none; color: #000;">
-            <!-- <h2 style="float: left; margin: 7px 7px 7px 12%; padding: 0;"
-            >Portal de Portfólio /usuario_home</h2> -->
-            <h2 style="float: left; margin: 16px 0px 0px 27%; padding: 0;"
-            >/usuario_home</h2>
-            <img src="<?php echo base_url('img/logo1.png')?>"
-                alt="Logo" style="
-                    width: 190px; position: absolute; top: 1.5px; left: 12%;"> 
-        </a>
-        <div style="float: right; padding: 15px;">
-        <?php if ($this->session->userdata('type') === '0'): ?>
-            <a href="<?php echo base_url('usuario') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        <?php elseif ($this->session->userdata('type') === '1'): ?>
-            <a href="<?php echo base_url('adm/adm') ?>"><?php echo $this->session->userdata('nome') ?></a>&nbsp;
-            <a href="<?php echo base_url('home/logoff') ?>">logoff</a>
-        <?php else: ?>
-            <a href="<?php echo base_url('cadastro') ?>">cadastrar-se</a>&nbsp;
-            <a href="<?php echo base_url('home/login') ?>">login</a>
-        <?php endif ?>
-        </div>
-    </div>
-
     <div class="user" style="
         display: table; width: 18%; float: left; word-break: break-all;
         ">
@@ -174,28 +132,3 @@
         <?php endforeach ?>
         <?php endif ?>
     </div>
-
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Avaliacao</h4>
-        <pre>
-            <?php print_r($avaliacao) ?>
-        </pre>
-        <h4>Top Usuario</h4>
-        <pre>
-            <?php print_r($topusuario) ?>
-        </pre>
-        <h4>Post One</h4>
-        <pre>
-            <?php print_r($postone) ?>
-        </pre>
-        <?php if(isset($post)): ?>
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <?php endif ?>
-    </div>
-
-</body>
-</html>

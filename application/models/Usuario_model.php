@@ -8,19 +8,29 @@ class Usuario_model extends CI_Model {
         parent::__construct();
     }
 
-    /* function getAllUsuario()
+    function getAllUsuario()
     {
-        //$this->db->order_by('avaliacoes', 'desc');
+        $this->db->order_by('idusuario', 'desc');
         $this->db->select(
-            'usuario.*,
+            'usuario.idusuario,
+            usuario.nome_completo,
+            usuario.email,
+            usuario.celular,
+            usuario.linkedin,
+            usuario.facebook,
+            usuario.instagram,
             cidade.nome_cidade, 
-            estado.sigla_estado');
+            estado.sigla_estado,
+            formacao.formacao');
+        $this->db->select('SUBSTRING(usuario.desc, 1, 100)', FALSE);
 
-        $this->db->from('usuario, estado, cidade');
+        $this->db->limit(3); // Limite de resultados
+        $this->db->from('usuario, estado, cidade, formacao');
         $this->db->where('usuario.perfil_de_usuario_id = 0');
         $this->db->where('usuario.status = 1');
         $this->db->where('usuario.cidade_id = cidade.idcidade');
         $this->db->where('cidade.estado_id = estado.idestado');
+        $this->db->where('usuario.formacao_curso_id = formacao.idformacao');
 
         $query = $this->db->get();
 
@@ -28,10 +38,10 @@ class Usuario_model extends CI_Model {
             return $query->result();
         else
             return false;
-    } */
+    }
 
     function getAllUsuarioById($id) {
-
+        
         $this->db->select(
             'usuario.*,
             cidade.nome_cidade, 
@@ -96,6 +106,28 @@ class Usuario_model extends CI_Model {
 
         $this->db->where('idusuario', $id);
         $this->db->update('usuario', array('status' => 0));
+
+        if ($this->db->affected_rows() > 0)
+            return true;
+        else
+            return false;
+    }
+
+    /* ------------------------------- ADM ------------------------------- */
+
+    function usuarioFullDelete($id)
+    {
+        $this->db->where('usuario_id', $id);
+        $this->db->delete('avaliacoes');
+
+        $this->db->where('usuario_id', $id);
+        $this->db->delete('chave_hash');
+
+        $this->db->where('usuario_id', $id);
+        $this->db->delete('post');
+
+        $this->db->where('idusuario', $id);
+        $this->db->delete('usuario');
 
         if ($this->db->affected_rows() > 0)
             return true;

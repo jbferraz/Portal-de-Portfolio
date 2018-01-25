@@ -48,6 +48,7 @@
                     alt="Foto do post">
             </div>           
         </div>
+        
         <h1 style="display: table; padding: 40px 0 0; font-size: 45px; margin: auto;">
             <?php echo strtoupper($post->titulo)?>
         </h1>
@@ -57,7 +58,7 @@
         <p style="
             display: table; width: 80%; padding: 30px; text-align: justify; 
             font-size: 18px; margin: auto;">
-            <?php for ($i = 0; $i < 100; $i++) echo $post->desc.' ' ?>
+            <?php  echo $post->desc.' ' ?>
         </p>
     </div>
 
@@ -85,17 +86,7 @@
         <?php endif ?>
     </div>
 
-    <div class="var_dump" style="margin: auto; display: table">
-        
-        <h4>Post</h4>
-        <pre>
-            <?php print_r($post) ?>
-        </pre>
-        <h4>Usuario</h4>
-        <pre>
-            <?php print_r($usuario) ?>
-        </pre>
-    </div>
+    
 
 </body>
 </html>
